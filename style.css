@@ -1,0 +1,107 @@
+@font-face {
+    font-family: doom1;
+    src: url(../fonts/Doom2016Left-RpJDA.ttf);
+}
+@font-face {
+    font-family: doom2;
+    src: url(../fonts/Doom2016Right-VGz0z.ttf);
+
+}
+@font-face {
+    font-family: doom3;
+    src: url(../fonts/Doom2016Text-GOlBq.ttf);
+
+}
+.jim {
+    font-family: doom1;
+}
+.tim {
+    font-family: doom2;
+}
+.nim {
+    font-family: doom3;
+}
+a,p {
+    font-size:9vw;
+    height:55px;
+    color:#8F1919;
+    margin:4vw;
+}
+#biu {
+    font-size:22vw;
+    background: linear-gradient(to top,#797979, #898989,#999999,#796E68,#7B523D, #7D2A00, #7D2A00, #7D2A00);
+    background-clip: text;
+    color: transparent;
+    margin:0px;
+    padding:0px;
+
+}
+html {
+    background-image: url(./facultty.png);
+    background-repeat: no-repeat;
+    background-size:cover;
+    overflow:hidden;
+} 
+.um {
+    padding:0px;
+    margin-left:26vw;
+    margin-right:26vw;
+    margin-top:-5vh;
+} 
+.fe {
+    display:flex;
+
+}
+.box1,.box2 {
+    background:linear-gradient(to bottom,#6b6b6b,#7d1700);;
+    border-style: solid;
+    border-width: 0.25vw;
+    border-radius: 1vw;
+    border-color: #797979;
+    height:95vh;
+    margin:0.25vw;
+    opacity: 0.9;
+}
+.box1 {
+    width:30vw;
+}
+.box2 {
+    width:55vw;
+}
+.box3 {
+    
+    background:linear-gradient(to bottom,#6b6b6b,#8e4700);
+    border-style: solid;
+    border-width: 0.25vw;
+    border-radius: 1.5vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    border-color: #797979;
+    opacity: 0.9;
+}
+button {
+    
+    background:#510303;
+    border-style: solid;
+    border-width: 0.25vw;
+    /*border-radius: 100%;*/
+    margin-left: 1vw;
+    margin-right: 1vw;
+    height:4vw;
+    width:4vw;
+    border-color: #e00303;
+    font-size: 3vw;
+    font-weight: bolder;
+}
+#kil {
+    margin:1vw;
+    font-size: 5vw;
+    opacity:100;
+    color:black;
+}
+.thin {
+    
+    display:grid;
+    grid-template-columns: 50% 50%;
+    justify-items:center;
+} 

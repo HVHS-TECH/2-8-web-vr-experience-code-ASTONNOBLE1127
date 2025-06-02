@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="./style.css">
+<title>Page Title</title>
+<script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+<script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js" crossorigin="anonymous"></script>
+
+<!-- A-frame extras-->
+<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
+ <script src="https://rawgit.com/donmccurdy/aframe-extras/v2.1.1/dist/aframe-extras.loaders.min.js"></script>
+
+</head> 
+<body>
+    <div class="fe"> 
+        <button class="nim" id="back">x</button>
+<div>
+    <div class="box3">
+    <div class="box2">
+        
+        <p id="kil" class="nim">instructions</p id="kil">
+        <div class="thin">
+        <p id="kil" class="nim">w</p id="kil">
+        <p id="kil" class="nim">walk fowards</p id="kil">
+        <p id="kil" class="nim">a</p id="kil">
+        <p id="kil" class="nim">walk left</p id="kil">
+        <p id="kil" class="nim">s</p id="kil">
+        <p id="kil" class="nim">walk backwards</p id="kil">
+        <p id="kil" class="nim">d</p id="kil">
+        <p id="kil" class="nim">walk right</p id="kil">
+        <p id="kil" class="nim">left click</p id="kil">
+        <p id="kil" class="nim">shoot</p id="kil">
+    </div></div>
+</div>
+</div>
+    <div class="box3">
+    <div class="box1">
+        <p id="kil" class="nim">kill the enemys to survive</p id="kil">
+            <p></p>
+        <p id="kil" class="nim">get to the end to win</p id="kil">
+    </div>
+    </div>
+</div>
+<script>
+document.getElementById("back").addEventListener("click",home); //runs start function
+
+    function home() { //takes user to details page
+        window.location.replace("index.html")
+    }
+    </script>
+    <!---     <div class="um">
+<a id="biu" class ='jim'>D</a>
+<a id="biu" class ='nim'>o</a>
+<a id="biu" class ='nim'>o</a>
+<a id="biu" class ='tim'>m</a>
+<a id="biu" class ='nim'>e</a>
+<a id="biu" class ='tim'>D</a>
+</div>
+<p class ='nim'>start</p>
+<p class ='nim'>instructions</p>
+   <a-scene physics="gravity: -9.8;restitution: 0.1" inspector-plugin-recast cursor="rayOrigin:mouse">
+        <a-entity id="player" camera look-controls="enabled:true; pointerLockEnabled:true" wasd-controls position="0 1.6 0">
+            <a-entity cursor
+            position="0 0 -1"
+            geometry="primitive: circle; radius: 0.01"
+            material="color: black; shader: flat">
+            </a-entity>
+        </a-entity>
+        <a-box id="enemy" position="0 0 -5" color="red" onClick="funny()" 
+        animation="property: scale; to: 0.1 0.1 0.1; dur: 150; startEvents: click"></a-box>
+        
+
+    </a-scene>
+    <script>
+        var cooldown =  false
+        async function funny() {
+            if (cooldown == false) {
+                cooldown = true
+                var word = (Math.random() * 20 - 10) +' '+ (Math.random() * 20 - 10) +' '+ (Math.random() * 20 - 10)
+        enemy.setAttribute('animation', {property: 'position', to: word, dur: '1000', startEvents: 'loaded'});
+        console.log(enemy.getAttribute('position'))
+        await new Promise(r => setTimeout(r, 1000));
+        console.log(enemy.getAttribute('position'))
+        cooldown = false
+            }
+
+    }
+    </script> -->
+</body>
+</html>

@@ -1,1 +1,67 @@
-Hello world!
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="./style.css">
+<title>Page Title</title>
+<script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+<script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js" crossorigin="anonymous"></script>
+
+<!-- A-frame extras-->
+<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
+ <script src="https://rawgit.com/donmccurdy/aframe-extras/v2.1.1/dist/aframe-extras.loaders.min.js"></script>
+
+</head> 
+<body>
+    <div class="um">
+<a id="biu" class ='jim'>D</a>
+<a id="biu" class ='nim'>o</a>
+<a id="biu" class ='nim'>o</a>
+<a id="biu" class ='tim'>m</a>
+<a id="biu" class ='nim'>e</a>
+<a id="biu" class ='tim'>D</a>
+</div>
+<p class ='nim' id="start">start</p>
+<p class ='nim' id="instruction">instructions</p>
+
+<script>
+document.getElementById("instruction").addEventListener("click",instruct); //runs instruct function
+document.getElementById("start").addEventListener("click",game); //runs instruct function
+
+    function instruct() {window.location.replace("instruction.html")} //takes user to instructions page
+    function game() {window.location.replace("game.html")} //takes user to game page
+
+
+    </script>
+  <!---- <a-scene physics="gravity: -9.8;restitution: 0.1" inspector-plugin-recast cursor="rayOrigin:mouse">
+        <a-entity id="player" camera look-controls="enabled:true; pointerLockEnabled:true" wasd-controls position="0 1.6 0">
+            <a-entity cursor
+            position="0 0 -1"
+            geometry="primitive: circle; radius: 0.01"
+            material="color: black; shader: flat">
+            </a-entity>
+        </a-entity>
+        <a-box id="enemy" position="0 0 -5" color="red" onClick="funny()" 
+        animation="property: scale; to: 0.1 0.1 0.1; dur: 150; startEvents: click"></a-box>
+        
+
+    </a-scene>
+    <script>
+        var cooldown =  false
+        async function funny() {
+            if (cooldown == false) {
+                cooldown = true
+                var word = (Math.random() * 20 - 10) +' '+ (Math.random() * 20 - 10) +' '+ (Math.random() * 20 - 10)
+        enemy.setAttribute('animation', {property: 'position', to: word, dur: '1000', startEvents: 'loaded'});
+        console.log(enemy.getAttribute('position'))
+        await new Promise(r => setTimeout(r, 1000));
+        console.log(enemy.getAttribute('position'))
+        cooldown = false
+            }
+
+    }
+    </script> -->
+</body>
+</html>

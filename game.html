@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="./style.css">
+<title>Page Title</title>
+<script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+<script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js" crossorigin="anonymous"></script>
+
+<!-- A-frame extras-->
+<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
+ <script src="https://rawgit.com/donmccurdy/aframe-extras/v2.1.1/dist/aframe-extras.loaders.min.js"></script>
+<!--credits-->
+<!--https://sketchfab.com/daraenor-->
+</head> 
+<body>
+    <a-scene physics="gravity: -9.8;restitution: 0.1" inspector-plugin-recast cursor="rayOrigin:mouse"  fog="type: exponential; color: #555555; density:0.25;">
+       <a-entity id="player" position="0 0 0" movement-controls="constrainToNavMesh: true;speed:0.5;"> 
+            <a-entity id="htd" camera look-controls="enabled:true; pointerLockEnabled:true" extended-wasd-controls position="0 1.6 0">
+              <a-gltf-model src="/boltgun_warhammer_40k (1).glb" scale="0.002 0.002 0.002" position="0.5 -0.25 -0.2" rotation="0 180 0"></a-gltf-model>
+            <a-entity cursor
+            position="0 0 -1"
+            geometry="primitive: circle; radius: 0.01"
+            material="color: black; shader: flat">
+            </a-entity>
+            <a-sky color="green"></a-sky>
+
+            
+
+
+ <a-light type="spot" color="#ffaaaa" light="castShadow:true; angle:35; " position="0 1 2" intensity="1"></a-light>
+         
+ </a-entity>
+              
+     </a-entity>
+
+<a-gltf-model position="0 0 0" src="./floo8.glb"></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./floo8.glb"></a-gltf-model>
+<a-gltf-model position="4 0 0" src="./floo8.glb"></a-gltf-model>
+<a-gltf-model position="0 0 -2" src="./floo8.glb"></a-gltf-model>
+<a-gltf-model position="2 0 -2" src="./floo8.glb"></a-gltf-model>
+<a-gltf-model position="4 0 -2" src="./floo8.glb"></a-gltf-model>
+
+
+<a-gltf-model rotation="-90 0 0" position="0 1 1" src="./wallUV.glb"></a-gltf-model>
+<a-gltf-model rotation="0 90 0" position="0 1.5 -4" src="./wedge1.glb"></a-gltf-model>
+<a-gltf-model rotation="0 90 0" position="0 1.5 -6" src="./wedge2.glb"></a-gltf-model>
+<a-gltf-model rotation="0 90 0" position="-2 0.5 -4" src="./wedge1.glb"></a-gltf-model>
+<a-gltf-model rotation="0 90 0" position="-2 0.5 -6" src="./wedge2.glb"></a-gltf-model>
+<a-gltf-model rotation="90 0 0" position="2 1 -3" src="./wall88.glb"></a-gltf-model>
+<a-gltf-model rotation="0 90 90" position="0 0.5 -3" src="./wall9.glb"></a-gltf-model>
+<a-gltf-model position="-5 0 0" src="./door1.glb"></a-gltf-model>
+
+
+
+
+
+
+
+
+        <!-- <a-entitycamera look-controls="enabled:true; pointerLockEnabled:true" wasd-controls position="0 1.6 0">
+            
+        </a-entity>
+        <a-gltf-model id="enemy" position="0 0 -5" color="green" onClick="funny()" 
+        animation="property: scale; to: 0.1 0.1 0.1; dur: 150; startEvents: click" src="/animated_triceratops_skeleton.glb" animation-mixer></a-gltf-model>
+    -->  <!--https://github.com/c-frame/aframe-extras/tree/master/src/loaders#animation
+<a-gltf-model src="./map_test.glb" nav-mesh></a-gltf-model>-->
+    </a-scene>
+    <script>
+        var cooldown =  false
+        const fil = ['./door1.glb','./floo8.glb','./wall2.glb','./wall.glb']
+        async function funny() {
+            if (cooldown == false) {
+                cooldown = true
+                var word = (player.getAttribute('position').x +' '+ player.getAttribute('position').y +' '+ player.getAttribute('position').z)
+        enemy.setAttribute('animation', {property: 'position', to: word, dur: '1000', startEvents: 'loaded'});
+        enemy.setAttribute('src', fil[Math.floor(Math.random()*4)])
+        console.log(Math.floor(Math.random()*10))
+        console.log(player.getAttribute('position'))
+        xd = player.getAttribute('position').x
+        await new Promise(r => setTimeout(r, 1000));
+        cooldown = false
+            }
+
+    }
+    </script>
+</body>
+</html>
