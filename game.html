@@ -70,11 +70,12 @@
 <a-gltf-model rotation="0 -90 0" position="5 2 -2" src="./support.glb"></a-gltf-model>
 <a-gltf-model rotation="0 -90 0" position="3 2 -2" src="./support.glb"></a-gltf-model>
 
-<a-gltf-model onclick="door(1)" id="door1" rotation="0 90 0" position="13.5 1.5 3" src="./door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
-<a-gltf-model id="door2" rotation="180 90 0" position="13.5 1.5 3" src="./door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
-
 <a-gltf-model rotation="0 90 0" position="5 2 0" src="./support.glb"></a-gltf-model>
 <a-gltf-model rotation="0 90 0" position="3 2 0" src="./support.glb"></a-gltf-model>
+
+<a-gltf-model onclick="door()" id="door1" rotation="0 90 0" position="13.5 1.5 3" src="./door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
+<a-gltf-model onclick="door()" id="door2" rotation="180 90 0" position="13.5 1.5 3" src="./door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
+
 
 
 <a-entity rotation="0 0 0" position="2.9 1 2"><a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model><a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model><a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model></a-entity>
@@ -662,6 +663,40 @@
 </a-entity>
 
 
+<a-gltf-model rotation="90 180 -90" position="9 4 32" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="9 4 30" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="9 4 28" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="9 4 26" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="9 4 24" src="./wall29.glb"></a-gltf-model>
+
+
+<a-gltf-model rotation="90 180 90" position="-1 4 32" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 90" position="-1 4 30" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 90" position="-1 4 28" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 90" position="-1 4 26" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 90" position="-1 4 24" src="./wall29.glb"></a-gltf-model>
+
+<a-gltf-model rotation="90 180 180" position="8 4 23" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 180" position="6 4 23" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 180" position="2 4 23" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 180" position="0 4 23" src="./wall29.glb"></a-gltf-model>
+
+<a-gltf-model rotation="90 180 0" position="8 4 33" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 0" position="6 4 33" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 0" position="2 4 33" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 0" position="0 4 33" src="./wall29.glb"></a-gltf-model>
+
+
+<a-gltf-model rotation="0 -90 0" position="5 2 12" src="./support.glb"></a-gltf-model>
+<a-gltf-model rotation="0 -90 0" position="3 2 12" src="./support.glb"></a-gltf-model>
+
+<a-gltf-model rotation="0 90 0" position="5 2 20" src="./support.glb"></a-gltf-model>
+<a-gltf-model rotation="0 90 0" position="3 2 20" src="./support.glb"></a-gltf-model>
+
+
+
+
+
         <!-- <a-entitycamera look-controls="enabled:true; pointerLockEnabled:true" wasd-controls position="0 1.6 0">
             
         </a-entity>
@@ -689,27 +724,11 @@
 
     }
 
-    async function door(i) {
-    console.log(door2.getAttribute('animation'))
-        i = i
-        console.log(i)
-        var word = ((document.getElementById("door" + String(i)).getAttribute('position').x + 1.5) +' '+ document.getElementById("door" + String(i)).getAttribute('position').y +' '+ (document.getElementById("door" + String(i)).getAttribute('position').z))
-        console.log(word)
-                        //word = (player.getAttribute('position').x +' '+ player.getAttribute('position').y +' '+ player.getAttribute('position').z)
-
-                  
-        var word2 = ((document.getElementById("door" + String(i)).getAttribute('position').x-1.5) +' '+ document.getElementById("door" + String(i)).getAttribute('position').y +' '+ (document.getElementById("door" + String(i)).getAttribute('position').z))      
-
-
-                    
-                    
+    async function door() {
         door1.setAttribute('animation', {property: 'position', to: '15 1.5 3', dur: '1000', startEvents: 'lod'});
         door2.setAttribute('animation', {property: 'position', to: '12 1.5 3', dur: '1000', startEvents: 'lod'});
         door1.emit('lod')
         door2.emit('lod')
-        console.log(document.getElementById("door" + String(i)).getAttribute('animation'))
-        //document.getElementById("door" + String(i)).setAttribute('animation', {property: 'position', to: document.getElementById("door" + i -1).getAttribute('position').z -1.5, dur: '1000', startEvents: 'loaded'});
-    console.log(door2.getAttribute('animation'))
     }
     </script>
 </body>
