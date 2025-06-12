@@ -20,9 +20,9 @@
 
 
 
-    <a-scene physics="gravity: -9.8;restitution: 0.1" inspector-plugin-recast cursor="rayOrigin:mouse"  fog="type: exponential; color: #111111; density:0.0000025;">
+    <a-scene inspector-plugin-recast cursor="rayOrigin:mouse"  fog="type: exponential; color: #111111; density:0.4;">
        <!--player-->
-        <a-entity id="player" position="0 0 0" movement-controls="constrainToNavMesh: true;speed:0.5;fly:enabled"> 
+        <a-entity id="player" position="0 0 0" movement-controls="constrainToNavMesh: true;speed:0.5;"> 
             <a-entity id="htd" camera look-controls="enabled:true; pointerLockEnabled:true" extended-wasd-controls position="0 1.6 0">
                 <a-gltf-model src="/boltgun_warhammer_40k (1).glb" scale="0.002 0.002 0.002" position="0.5 -0.25 -0.2" rotation="0 180 0"></a-gltf-model>
                 <a-entity cursor position="0 0 -1" geometry="primitive: circle; radius: 0.01" material="color: black; shader: flat"></a-entity>
@@ -73,8 +73,8 @@
 <a-gltf-model rotation="0 90 0" position="5 2 0" src="./support.glb"></a-gltf-model>
 <a-gltf-model rotation="0 90 0" position="3 2 0" src="./support.glb"></a-gltf-model>
 
-<a-gltf-model onclick="door()" id="door1" rotation="0 90 0" position="13.5 1.5 3" src="./door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
-<a-gltf-model onclick="door()" id="door2" rotation="180 90 0" position="13.5 1.5 3" src="./door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
+<a-gltf-model onclick="door(1,13.5,'x')" id="door1" rotation="0 90 0" position="13.5 1.5 3" src="./door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
+<a-gltf-model onclick="door(1,13.5,'x')" id="door2" rotation="180 90 0" position="13.5 1.5 3" src="./door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
 
 
 
@@ -293,7 +293,16 @@
 <a-gltf-model rotation="-90 90 90" position="11.5 1 14" src="./wall99.glb"></a-gltf-model><a-gltf-model rotation="-90 90 90" position="11.5 3 14" src="./wall99.glb"></a-gltf-model>
 <a-gltf-model rotation="90 0 180" position="14 1 17" src="./wall29.glb"></a-gltf-model><a-gltf-model rotation="180 90 -90" position="14 2.5 17" src="./wall99.glb"></a-gltf-model>
 <a-gltf-model rotation="90 0 180" position="12 1 17" src="./wall29.glb"></a-gltf-model><a-gltf-model rotation="180 90 -90" position="12 2.5 17" src="./wall99.glb"></a-gltf-model>
-<a-entity rotation="0 0 0" position="10 0 16" class="corridor"><a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model><a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model><a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model><a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model><a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model><a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model><a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model><a-gltf-model position="0 3 -2" src="./2floor.glb"></a-gltf-model></a-entity>
+<a-entity rotation="0 0 0" position="10 0 16" class="corridor">
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -2" src="./2floor.glb"></a-gltf-model>
+</a-entity>
         
 <a-entity class="hall" position="4 3 2">
 <a-gltf-model position="0 2 0" src="./2floor.glb"></a-gltf-model>
@@ -386,13 +395,14 @@
 <a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
 </a-entity>
 
-
-<a-gltf-model rotation="90 0 90" position="9 1 13.5" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="90 0 90" position="9 3 13.5" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="180 0 90" position="9 3.5 14" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="9 4.5 14" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="180 0 90" position="9 3.5 16" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="9 4.5 16" src="./wall99.glb"></a-gltf-model>
+<a-entity position="9 0 14">
+<a-gltf-model rotation="90 0 90" position="0 1 -0.5" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 0 90" position="0 3 -0.5" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="180 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 4.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="180 0 90" position="0 3.5 2" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 4.5 2" src="./wall99.glb"></a-gltf-model>
+</a-entity>
         
 <a-entity class="wall1" rotation="0 0 0" position="9 1 12">
 <a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
@@ -417,12 +427,12 @@
 <a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
 <a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
 </a-entity>
-<a-entity class="wall1" rotation="0 180 0" position="-1 1 14">
+<a-entity class="wall1" rotation="0 180 0" position="-1 100 14">
 <a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
 <a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
 <a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
 </a-entity>
-<a-entity class="wall1" rotation="0 180 0" position="-1 1 16">
+<a-entity class="wall1" rotation="0 180 0" position="-1 100 16">
 <a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
 <a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
 </a-entity>
@@ -686,7 +696,162 @@
 <a-gltf-model rotation="0 90 0" position="5 2 20" src="./support.glb"></a-gltf-model>
 <a-gltf-model rotation="0 90 0" position="3 2 20" src="./support.glb"></a-gltf-model>
 
+<a-entity position="-1 0 14">
+<a-gltf-model rotation="90 180 90" position="0 1 -0.5" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 90" position="0 3 -0.5" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="180 180 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="0 180 90" position="0 4.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="180 180 90" position="0 3.5 2" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="0 180 90" position="0 4.5 2" src="./wall99.glb"></a-gltf-model>
+</a-entity>
 
+<a-entity rotation="0 0 0" position="-2 0 16" class="corridor">
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -2" src="./2floor.glb"></a-gltf-model>
+</a-entity>
+<a-entity rotation="0 0 0" position="-4 0 16" class="corridor">
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -2" src="./2floor.glb"></a-gltf-model>
+</a-entity>
+<a-entity rotation="0 0 0" position="-6 0 16" class="corridor">
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -2" src="./2floor.glb"></a-gltf-model>
+</a-entity>
+<a-entity rotation="0 0 0" position="-8 0 16" class="corridor">
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model rotation="-90 0 180" position="0.5 1 -2" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model rotation="-90 0 180" position="0.5 3 -2" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 90 180" position="0 1 -2.5" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 90 180" position="0 3 -2.5" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -2" src="./2floor.glb"></a-gltf-model>
+</a-entity>
+<a-entity rotation="0 0 0" position="-10 0 16" class="corridor">
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 90 0" position="-1 1 0" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 180 90" position="-1 2.5 0" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 90 0" position="-1 1 -2" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 180 90" position="-1 2.5 -2" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -2" src="./2floor.glb"></a-gltf-model>
+</a-entity>
+<a-entity rotation="0 -90 0" position="-10 0 12" class="corridor">
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -1.95" src="./2floor.glb"></a-gltf-model>
+</a-entity>
+<a-entity rotation="0 -90 0" position="-10 0 10" class="corridor">
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -1.95" src="./2floor.glb"></a-gltf-model>
+</a-entity>
+<a-entity rotation="0 -90 0" position="-10 0 8" class="corridor">
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -1.95" src="./2floor.glb"></a-gltf-model>
+</a-entity>
+<a-entity rotation="0 -90 0" position="-10 0 6" class="corridor">
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -1.95" src="./2floor.glb"></a-gltf-model>
+</a-entity>
+<a-entity rotation="0 -90 0" position="-10 0 4" class="corridor">
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -1.95" src="./2floor.glb"></a-gltf-model>
+</a-entity>
+<a-entity rotation="0 -90 0" position="-10 0 2" class="corridor">
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -1.95" src="./2floor.glb"></a-gltf-model>
+</a-entity>
+<a-entity rotation="0 -90 0" position="-10 0 0" class="corridor">
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -1.95" src="./2floor.glb"></a-gltf-model>
+</a-entity>
+
+
+<a-gltf-model onclick="finish(2,-9.5,'x')" id="door3" rotation="0 90 0" position="-9.5 1.5 -1" src="./door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
+<a-gltf-model onclick="finish(2,-9.5,'x')" id="door4" rotation="180 90 0" position="-9.5 1.5 -1" src="./door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
+
+<a-gltf-model onclick="door(3,15.5,'z')" id="door5" rotation="0 0 0" position="-2 1.5 15.5" src="./door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
+<a-gltf-model onclick="door(3,15.5,'z')" id="door6" rotation="180 0 0" position="-2 1.5 15.5" src="./door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
+
+<a-gltf-model onclick="door(4,15.5,'z')" id="door7" rotation="0 0 0" position="10 1.5 15.5" src="./door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
+<a-gltf-model onclick="door(4,15.5,'z')" id="door8" rotation="180 0 0" position="10 1.5 15.5" src="./door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
+
+<a-gltf-model onclick="finish(5,4,'x')" id="door9" rotation="0 90 0" position="4 4 35" src="./door1.glb" scale="1 1 1"></a-gltf-model>
+<a-gltf-model onclick="finish(5,4,'x')" id="door10" rotation="180 90 0" position="4 4 35" src="./door1.glb" scale="1 1 1"></a-gltf-model>
+
+<a-gltf-model id="mesh" src="./navmesh0.glb" scale="10 10 10" rotation="0 -90 0" position="7 0 8" visible="false" nav-mesh></a-gltf-model>  
+
+<!--<a-plane scale="20 20 20" nav-mesh rotation="-90"></a-plane>-->
+
+<a-entity id="npc"
+          gltf-model="door1.glb"
+          nav-agent="speed: 11.5"
+          scale="0.5 0.5 0.5"
+          ></a-entity>
 
 
 
@@ -716,19 +881,77 @@
             }
 
     }
+const doorid = [1,2,5,6,7,8]
+const doorspawn = [13.5,3,-2,15.5,10,15.5]
 
-    async function door() {
-    if (door1.getAttribute('position').x == 15) {
-        door1.setAttribute('animation', {property: 'position', to: '13.5 1.5 3', dur: '1000', startEvents: 'lod'});
-        door2.setAttribute('animation', {property: 'position', to: '13.5 1.5 3', dur: '1000', startEvents: 'lod'});
+
+
+    async function door(i, spawn,type) {
+        
+        i = i * 2
+        //document.getElementById("door" + String(i-1))
+        //document.getElementById("door" + String(i))
+if (type == 'x') {
+    if (document.getElementById("door" + String(i-1)).getAttribute('position').x == spawn) {
+        let pos1 = ((document.getElementById("door" + String(i-1)).getAttribute('position').x + 1.5) + ' ' + document.getElementById("door" + String(i-1)).getAttribute('position').y + ' ' + document.getElementById("door" + String(i-1)).getAttribute('position').z)
+        let pos2 = ((document.getElementById("door" + String(i)).getAttribute('position').x - 1.5) + ' ' + document.getElementById("door" + String(i)).getAttribute('position').y + ' ' + document.getElementById("door" + String(i)).getAttribute('position').z)
+        document.getElementById("door" + String(i-1)).setAttribute('animation', {property: 'position', to: pos1, dur: '1000', startEvents: 'lod'});
+        document.getElementById("door" + String(i)).setAttribute('animation', {property: 'position', to: pos2, dur: '1000', startEvents: 'lod'});
+        await mesh.setAttribute('src','./navmesh'+i+'.glb')
+    } else {
+        let pos1 = (spawn + ' ' + document.getElementById("door" + String(i-1)).getAttribute('position').y + ' ' + document.getElementById("door" + String(i-1)).getAttribute('position').z)
+        let pos2 = (spawn + ' ' + document.getElementById("door" + String(i)).getAttribute('position').y + ' ' + document.getElementById("door" + String(i)).getAttribute('position').z)
+        document.getElementById("door" + String(i-1)).setAttribute('animation', {property: 'position', to: pos1, dur: '1000', startEvents: 'lod'});
+        document.getElementById("door" + String(i)).setAttribute('animation', {property: 'position', to: pos2, dur: '1000', startEvents: 'lod'});
+        await mesh.setAttribute('src','./navmesh0.glb')
+    }
+    } else {
+        
+    if (document.getElementById("door" + String(i-1)).getAttribute('position').z == spawn) {
+        let pos1 = ((document.getElementById("door" + String(i-1)).getAttribute('position').x) + ' ' + document.getElementById("door" + String(i-1)).getAttribute('position').y + ' ' + (document.getElementById("door" + String(i-1)).getAttribute('position').z + 1.5))
+        let pos2 = ((document.getElementById("door" + String(i)).getAttribute('position').x) + ' ' + document.getElementById("door" + String(i)).getAttribute('position').y + ' ' + (document.getElementById("door" + String(i)).getAttribute('position').z - 1.5))
+        document.getElementById("door" + String(i-1)).setAttribute('animation', {property: 'position', to: pos1, dur: '1000', startEvents: 'lod'});
+        document.getElementById("door" + String(i)).setAttribute('animation', {property: 'position', to: pos2, dur: '1000', startEvents: 'lod'});
+        await mesh.setAttribute('src','./navmesh'+i+'.glb')
 
     } else {
-        door1.setAttribute('animation', {property: 'position', to: '15 1.5 3', dur: '1000', startEvents: 'lod'});
-        door2.setAttribute('animation', {property: 'position', to: '12 1.5 3', dur: '1000', startEvents: 'lod'});
+        let pos1 = (document.getElementById("door" + String(i-1)).getAttribute('position').x + ' ' + document.getElementById("door" + String(i-1)).getAttribute('position').y + ' ' + spawn)
+        let pos2 = (document.getElementById("door" + String(i)).getAttribute('position').x + ' ' + document.getElementById("door" + String(i)).getAttribute('position').y + ' ' + spawn)
+        document.getElementById("door" + String(i-1)).setAttribute('animation', {property: 'position', to: pos1, dur: '1000', startEvents: 'lod'});
+        document.getElementById("door" + String(i)).setAttribute('animation', {property: 'position', to: pos2, dur: '1000', startEvents: 'lod'});
+        await mesh.setAttribute('src','./navmesh0.glb')
     }
-        door1.emit('lod')
-        door2.emit('lod')
     }
+        document.getElementById("door" + String(i-1)).emit('lod')
+        document.getElementById("door" + String(i)).emit('lod')
+        for (let y = 1; y<(doorid.length/2 + 1); y++) {
+    if (doorid[y*2-1] != i) {
+        var pos = (doorspawn[y*2-1-1] + ' ' + document.getElementById("door" + String(doorid[y*2-1-1])).getAttribute('position').y + ' ' + doorspawn[y*2-1])
+        document.getElementById("door" + String(doorid[y*2-1-1])).setAttribute('animation', {property: 'position', to: pos, dur: '1000', startEvents: 'lod'})
+        document.getElementById("door" + String(doorid[y*2-1])).setAttribute('animation', {property: 'position', to: pos, dur: '1000', startEvents: 'lod'})
+        document.getElementById("door" + String(doorid[y*2-1-1])).emit('lod')
+        document.getElementById("door" + String(doorid[y*2-1])).emit('lod')
+        console.log("door" + String(doorid[y*2-1]) + pos)
+        console.log("door" + String(doorid[y*2-1-1]))
+    }
+}
+   
+}
+function finish(i,spawn,type) {
+    door(i,spawn,type)
+}
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    var word = (player.getAttribute('position').x +' '+ player.getAttribute('position').y +' '+ player.getAttribute('position').z)
+        
+        console.log(player.getAttribute('position'))
+        var npcEl = document.querySelector('#npc');
+npcEl.setAttribute('nav-agent', {
+  active: true,
+  destination: word
+}); 
+} 
+})
     </script>
 </body>
 </html>
