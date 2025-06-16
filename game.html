@@ -11,8 +11,10 @@
     <!-- A-frame extras-->
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/v2.1.1/dist/aframe-extras.loaders.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aframe-physics-system@4.0.1/dist/aframe-physics-system.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/n5r/aframe-physics-system@latest/aframe-physics-system.min.js"></script>
 
-    <!--credits-->
+<!--credits-->
     <!--https://sketchfab.com/daraenor-->
     </head> 
     <body>
@@ -20,11 +22,11 @@
 
 
 
-<a-scene inspector-plugin-recast cursor="rayOrigin:mouse"  fog="type: exponential; color: #111111; density:0.000000000000001;">
+<a-scene physics="debug: true" inspector-plugin-recast cursor="rayOrigin:mouse"  fog="type: exponential; color: #111111; density:0.000000000000001;">
        <!--player-->
-<a-entity id="player" position="0 0 0" movement-controls="constrainToNavMesh: true;speed:0.5;"> 
+<a-entity collision-listener static-body id="player" position="0 0 0" movement-controls="constrainToNavMesh: true;speed:0.5;"> 
             <a-entity id="htd" camera look-controls="enabled:true; pointerLockEnabled:true" extended-wasd-controls position="0 1.6 0">
-                <a-gltf-model src="/boltgun_warhammer_40k (1).glb" scale="0.002 0.002 0.002" position="0.5 -0.25 -0.2" rotation="0 180 0"></a-gltf-model>
+                <a-gltf-model id="gun" collision-listener static-body src="/boltgun_warhammer_40k (1).glb" scale="0.002 0.002 0.002" position="0.5 -0.25 -0.2" rotation="0 180 0"></a-gltf-model>
                 <a-entity cursor position="0 0 -1" geometry="primitive: circle; radius: 0.01" material="color: black; shader: flat"></a-entity>
                <!-- <a-light type="spot" color="#ffffaa" light="castShadow:true; angle:35; " position="0 1 2" intensity="1"></a-light>
            --> </a-entity>
@@ -110,25 +112,25 @@
 
 <a-entity class="iregFloors">
 <a-entity class="stairs" position="0 0.5 -6">
-<a-gltf-model rotation="0 90 0" position="2 2 2" src="./wedge1.glb"></a-gltf-model>
-<a-gltf-model rotation="0 90 0" position="2 2 0" src="./wedge1.glb"></a-gltf-model>
-<a-gltf-model rotation="0 90 0" position="0 1 2" src="./wedge1.glb"></a-gltf-model>
-<a-gltf-model rotation="0 90 0" position="0 1 0" src="./wedge1.glb"></a-gltf-model>
-<a-gltf-model rotation="0 90 0" position="-2 0 2" src="./wedge1.glb"></a-gltf-model>
-<a-gltf-model rotation="0 90 0" position="-2 0 0" src="./wedge1.glb"></a-gltf-model>
-<a-gltf-model rotation="0 90 90" position="0 0 3" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="90 0 0" position="2 0.5 3" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model static-body rotation="0 90 0" position="2 2 2" src="./wedge1.glb"></a-gltf-model>
+<a-gltf-model static-body rotation="0 90 0" position="2 2 0" src="./wedge1.glb"></a-gltf-model>
+<a-gltf-model static-body rotation="0 90 0" position="0 1 2" src="./wedge1.glb"></a-gltf-model>
+<a-gltf-model static-body rotation="0 90 0" position="0 1 0" src="./wedge1.glb"></a-gltf-model>
+<a-gltf-model static-body rotation="0 90 0" position="-2 0 2" src="./wedge1.glb"></a-gltf-model>
+<a-gltf-model static-body rotation="0 90 0" position="-2 0 0" src="./wedge1.glb"></a-gltf-model>
+<a-gltf-model static-body rotation="0 90 90" position="0 0 3" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model static-body rotation="90 0 0" position="2 0.5 3" src="./wall29.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="bridge" position="4 2 0">
 <a-gltf-model rotation="0 -90 0" position="1 0 -2" src="./support.glb"></a-gltf-model>
 <a-gltf-model rotation="0 -90 0" position="-1 0 -2" src="./support.glb"></a-gltf-model>
-<a-gltf-model position="0 1 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="0 1 -2" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model static-body position="0 1 0" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model static-body position="0 1 -2" src="./floo88.glb"></a-gltf-model>
 <a-gltf-model rotation="0 90 0" position="1 0 0" src="./support.glb"></a-gltf-model>
 <a-gltf-model rotation="0 90 0" position="-1 0 0" src="./support.glb"></a-gltf-model>
 </a-entity>
 
-<a-entity class="floorRaised" position="4 3 -6">
+<a-entity static-body class="floorRaised" position="4 3 -6">
 <a-gltf-model position="2 0 2" src="./floo88.glb"></a-gltf-model>
 <a-gltf-model position="2 0 0" src="./floo88.glb"></a-gltf-model>
 <a-gltf-model position="0 0 2" src="./floo88.glb"></a-gltf-model>
@@ -137,14 +139,14 @@
 </a-entity>
 
 <a-entity class="westRoomWalls">
-<a-entity class="wallnorth1" rotation="90 0 0" position="7 4 -3">
+<a-entity static-body class="wallnorth1" rotation="90 0 0" position="7 4 -3">
     <a-gltf-model rotation="90 180 -90" position="0 -3 0" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="90 180 -90" position="0 -1 0" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="90 180 -90" position="0 1 0" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="90 180 -90" position="0 3 0" src="./wall29.glb"></a-gltf-model>
 </a-entity>
 
-<a-entity class="wallnorth2" position="2.9 1 2">
+<a-entity static-body class="wallnorth2" position="2.9 1 2">
 <a-entity rotation="0 0 0" position="0 0 0">
     <a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
@@ -157,7 +159,7 @@
 </a-entity>
 </a-entity>
 
-<a-entity class="walleast" position="-2 1 5">
+<a-entity static-body class="walleast" position="-2 1 5">
 <a-entity rotation="0 -90 0" position="4 0 0">
     <a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
@@ -185,7 +187,7 @@
 </a-entity>
 </a-entity>
 
-<a-entity class="wallsouth" position="-7 1 0">
+<a-entity static-body class="wallsouth" position="-7 1 0">
 <a-entity class="wall" rotation="0 180 0" position="0 0 4">
 <a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
 <a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
@@ -218,7 +220,7 @@
 </a-entity>
 </a-entity>
 
-<a-entity class="wallwest" position="0 1 -7">
+<a-entity static-body class="wallwest" position="0 1 -7">
 <a-entity class="wall" rotation="0 90 0" position="-6 0 0">
 <a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
 <a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
@@ -254,7 +256,7 @@
 </a-entity>
 </a-entity>
 
-<a-entity class="regFloors" position="-2 0 0">
+<a-entity class="regFloors" position="-2 0 0" id="ew" static-body>
 <a-entity class="floor" position="0 0 4">
 <a-gltf-model position="-4 0 0" src="./floo88.glb"></a-gltf-model>
 <a-gltf-model position="-2 0 0" src="./floo88.glb"></a-gltf-model>
@@ -951,14 +953,19 @@
 
 
 
-<a-entity id="npc" gltf-model="door1.glb" nav-agent="speed: 11.5" scale="0.5 0.5 0.5"></a-entity>
-<a-box color="green" event-set__enter="_event: collide; _target: #player; material.color: red;"></a-box>
+<a-entity dynamic-body id="npc" gltf-model="door1.glb" nav-agent="speed: 11.5" scale="0.5 0.5 0.5" position="0 100 0"></a-entity>
+<a-box id="jim" dynamic-body color="green" position="0 200 0" scale="2 2 2"></a-box>
 
 </a-scene>
 
 
 
     <script>
+document.querySelector("#jim").addEventListener("collide", (e) => {
+  console.log("Box1 collided with", e.detail.body.el);
+});
+
+
         var cooldown =  false
         const fil = ['./door1.glb','./floo88.glb','./wall2.glb','./wall.glb']
         async function funny() {
@@ -1038,7 +1045,8 @@ function finish(i,spawn,type) {
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     var word = (player.getAttribute('position').x +' '+ player.getAttribute('position').y +' '+ player.getAttribute('position').z)
-        
+        jim.setAttribute('animation',{property: 'position', to: word, dur: '1000', startEvents: 'lod'})
+        jim.emit('lod')
         console.log(player.getAttribute('position'))
         var npcEl = document.querySelector('#npc');
 npcEl.setAttribute('nav-agent', {
