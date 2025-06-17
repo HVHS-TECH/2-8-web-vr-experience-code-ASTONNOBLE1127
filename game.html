@@ -22,14 +22,15 @@
 
 
 
-<a-scene physics="debug: true" inspector-plugin-recast cursor="rayOrigin:mouse"  fog="type: exponential; color: #111111; density:0.000000000000001;">
+<a-scene physics="debug: true; gravity: 0" inspector-plugin-recast cursor="rayOrigin:mouse"  fog="type: exponential; color: #111111; density:0.4;">
        <!--player-->
-<a-entity collision-listener static-body id="player" position="0 0 0" movement-controls="constrainToNavMesh: true;speed:0.5;"> 
+<a-entity static-body id="player" position="0 0 0" movement-controls="constrainToNavMesh: true;speed:0.55;"> 
             <a-entity id="htd" camera look-controls="enabled:true; pointerLockEnabled:true" extended-wasd-controls position="0 1.6 0">
-                <a-gltf-model id="gun" collision-listener static-body src="/boltgun_warhammer_40k (1).glb" scale="0.002 0.002 0.002" position="0.5 -0.25 -0.2" rotation="0 180 0"></a-gltf-model>
+                <a-gltf-model id="gun" src="/boltgun_warhammer_40k (1).glb" scale="0.002 0.002 0.002" position="0.5 -0.25 -0.2" rotation="0 180 0"></a-gltf-model>
                 <a-entity cursor position="0 0 -1" geometry="primitive: circle; radius: 0.01" material="color: black; shader: flat"></a-entity>
-               <!-- <a-light type="spot" color="#ffffaa" light="castShadow:true; angle:35; " position="0 1 2" intensity="1"></a-light>
-           --> </a-entity>
+                <a-image id="popup" visible="false" position="0 -0.06 -0.1" src="./end221.png" scale="0.15 0.05 0.05"></a-image>
+                <a-light type="spot" color="#caffaa" light="castShadow:true; angle:35; " position="0 1 2" intensity="1"></a-light>
+            </a-entity>
 </a-entity>
         <!--sky-->
 <a-sky></a-sky>
@@ -93,8 +94,8 @@
         <a-entity rotation="0 0 0" position="4 0 0" class="corridor">
             <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
             <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-            <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-            <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+            <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+            <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
             <a-gltf-model rotation="90 0 0" position="0 1 -3" src="./wall29.glb"></a-gltf-model>
             <a-gltf-model rotation="0 90 90" position="0 2.5 -3" src="./wall99.glb"></a-gltf-model>
             </a-entity>
@@ -102,8 +103,8 @@
             <a-gltf-model rotation="90 180 0" position="0 3 1" src="./wall29.glb"></a-gltf-model>
             <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
             <a-gltf-model rotation="0 -90 90" position="0 4.5 1" src="./wall99.glb"></a-gltf-model>
-            <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-            <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+            <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+            <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
             <a-gltf-model rotation="90 0 0" position="0 1 -3" src="./wall29.glb"></a-gltf-model>
             <a-gltf-model rotation="0 90 90" position="0 2.5 -3" src="./wall99.glb"></a-gltf-model>
         </a-entity>
@@ -118,32 +119,32 @@
 <a-gltf-model static-body rotation="0 90 0" position="0 1 0" src="./wedge1.glb"></a-gltf-model>
 <a-gltf-model static-body rotation="0 90 0" position="-2 0 2" src="./wedge1.glb"></a-gltf-model>
 <a-gltf-model static-body rotation="0 90 0" position="-2 0 0" src="./wedge1.glb"></a-gltf-model>
-<a-gltf-model static-body rotation="0 90 90" position="0 0 3" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model static-body rotation="90 0 0" position="2 0.5 3" src="./wall29.glb"></a-gltf-model>
+<a-entity static-body><a-gltf-model rotation="0 90 90" position="0 0 3" src="./wall99.glb"></a-gltf-model></a-entity>
+<a-entity static-body><a-gltf-model rotation="90 0 0" position="2 0.5 3" src="./wall29.glb"></a-gltf-model></a-entity>
 </a-entity>
 <a-entity class="bridge" position="4 2 0">
 <a-gltf-model rotation="0 -90 0" position="1 0 -2" src="./support.glb"></a-gltf-model>
 <a-gltf-model rotation="0 -90 0" position="-1 0 -2" src="./support.glb"></a-gltf-model>
-<a-gltf-model static-body position="0 1 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model static-body position="0 1 -2" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model static-body position="0 1 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model static-body position="0 1 -2" src="./floo88.glb" static-body></a-gltf-model>
 <a-gltf-model rotation="0 90 0" position="1 0 0" src="./support.glb"></a-gltf-model>
 <a-gltf-model rotation="0 90 0" position="-1 0 0" src="./support.glb"></a-gltf-model>
 </a-entity>
 
 <a-entity static-body class="floorRaised" position="4 3 -6">
-<a-gltf-model position="2 0 2" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="0 0 2" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model position="2 0 2" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 2" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
 </a-entity>
 </a-entity>
 
 <a-entity class="westRoomWalls">
-<a-entity static-body class="wallnorth1" rotation="90 0 0" position="7 4 -3">
-    <a-gltf-model rotation="90 180 -90" position="0 -3 0" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="90 180 -90" position="0 -1 0" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="90 180 -90" position="0 1 0" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="90 180 -90" position="0 3 0" src="./wall29.glb"></a-gltf-model>
+<a-entity static-body class="wallnorth1" rotation="0 0 0" position="7 4 -2">
+    <a-gltf-model rotation="90 180 -90" position="0 0 -4" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 -90" position="0 0 -2" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 -90" position="0 0 2" src="./wall29.glb"></a-gltf-model>
 </a-entity>
 
 <a-entity static-body class="wallnorth2" position="2.9 1 2">
@@ -258,42 +259,42 @@
 
 <a-entity class="regFloors" position="-2 0 0" id="ew" static-body>
 <a-entity class="floor" position="0 0 4">
-<a-gltf-model position="-4 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="4 0 0" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="4 0 0" src="./floo88.glb" ></a-gltf-model>
 </a-entity>
 
 <a-entity class="floor" position="0 0 2">
-<a-gltf-model position="-4 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="4 0 0" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="4 0 0" src="./floo88.glb" ></a-gltf-model>
 </a-entity>
 
 <a-entity class="floor" position="0 0 0">
-<a-gltf-model position="-4 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="4 0 0" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="4 0 0" src="./floo88.glb" ></a-gltf-model>
 </a-entity>
 
 <a-entity class="floor" position="0 0 -2">
-<a-gltf-model position="-4 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="4 0 0" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="4 0 0" src="./floo88.glb" ></a-gltf-model>
 </a-entity>
 
 <a-entity class="floorsquare" position="-4 0 -6">
-<a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="2 0 2" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="0 0 2" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="2 0 2" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="0 0 2" src="./floo88.glb" ></a-gltf-model>
 </a-entity>
 </a-entity>
 </a-entity>
@@ -303,8 +304,8 @@
         <a-entity rotation="0 0 0" position="0 0 0" class="corridor">
             <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
             <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-            <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-            <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+            <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+            <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
             <a-gltf-model rotation="90 0 0" position="0 1 -3" src="./wall29.glb"></a-gltf-model>
             <a-gltf-model rotation="0 90 90" position="0 2.5 -3" src="./wall99.glb"></a-gltf-model>
             <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
@@ -313,8 +314,8 @@
         <a-entity rotation="0 0 0" position="2 0 0" class="corridor">
             <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
             <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-            <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-            <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+            <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+            <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
             <a-gltf-model rotation="90 0 0" position="0 1 -3" src="./wall29.glb"></a-gltf-model>
             <a-gltf-model rotation="0 90 90" position="0 2.5 -3" src="./wall99.glb"></a-gltf-model>
             <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
@@ -326,8 +327,8 @@
         <a-entity rotation="0 0 0" position="0 0 0" class="corridor">
             <a-gltf-model rotation="-90 -90 90" position="-0.5 1 1" src="./wall99.glb"></a-gltf-model>
             <a-gltf-model rotation="-90 -90 90" position="-0.5 3 1" src="./wall99.glb"></a-gltf-model>
-            <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-            <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+            <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+            <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
             <a-gltf-model rotation="90 0 0" position="0 1 -3" src="./wall29.glb"></a-gltf-model>
             <a-gltf-model rotation="0 90 90" position="0 2.5 -3" src="./wall99.glb"></a-gltf-model>
             <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
@@ -335,8 +336,8 @@
         </a-entity>
 
         <a-entity rotation="0 0 0" position="2 0 0" class="corridor">
-            <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-            <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+            <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+            <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
             <a-gltf-model rotation="90 0 0" position="0 1 -3" src="./wall29.glb"></a-gltf-model>
             <a-gltf-model rotation="0 90 90" position="0 2.5 -3" src="./wall99.glb"></a-gltf-model>
             <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
@@ -359,8 +360,8 @@
 
 <a-entity class="eastwards" position="5.5 0 0">
 <a-entity class="corridorslim" position="0 0 2">
-<a-gltf-model src="./floo88.glb" position="0.5 0 0"></a-gltf-model>
-<a-gltf-model src="./floo88.glb" position="-1.5 0 0"></a-gltf-model>
+<a-gltf-model src="./floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
+<a-gltf-model src="./floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
 <a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./wall29.glb"></a-gltf-model>
 <a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
 <a-gltf-model rotation="0 180 90" position="-1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
@@ -369,8 +370,8 @@
 <a-gltf-model src="./2floor.glb" position="-1.5 3 0"></a-gltf-model>
 </a-entity>
 <a-entity class="corridorslim" position="0 0 4">
-<a-gltf-model src="./floo88.glb" position="0.5 0 0"></a-gltf-model>
-<a-gltf-model src="./floo88.glb" position="-1.5 0 0"></a-gltf-model>
+<a-gltf-model src="./floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
+<a-gltf-model src="./floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
 <a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./wall29.glb"></a-gltf-model>
 <a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
 <a-gltf-model rotation="0 180 90" position="-1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
@@ -379,8 +380,8 @@
 <a-gltf-model src="./2floor.glb" position="-1.5 3 0"></a-gltf-model>
 </a-entity>
 <a-entity class="corridorslim" position="0 0 6">
-<a-gltf-model src="./floo88.glb" position="0.5 0 0"></a-gltf-model>
-<a-gltf-model src="./floo88.glb" position="-1.5 0 0"></a-gltf-model>
+<a-gltf-model src="./floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
+<a-gltf-model src="./floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
 <a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./wall29.glb"></a-gltf-model>
 <a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
 <a-gltf-model rotation="0 180 90" position="-1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
@@ -389,8 +390,8 @@
 <a-gltf-model src="./2floor.glb" position="-1.5 3 0"></a-gltf-model>
 </a-entity>
 <a-entity class="corridorslim" position="0 0 8">
-<a-gltf-model src="./floo88.glb" position="0.5 0 0"></a-gltf-model>
-<a-gltf-model src="./floo88.glb" position="-1.5 0 0"></a-gltf-model>
+<a-gltf-model src="./floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
+<a-gltf-model src="./floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
 <a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./wall29.glb"></a-gltf-model>
 <a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
 <a-gltf-model rotation="0 180 90" position="-1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
@@ -399,8 +400,8 @@
 <a-gltf-model src="./2floor.glb" position="-1.5 3 0"></a-gltf-model>
 </a-entity>
 <a-entity class="corridorslim" position="0 0 10">
-<a-gltf-model src="./floo88.glb" position="0.5 0 0"></a-gltf-model>
-<a-gltf-model src="./floo88.glb" position="-1.5 0 0"></a-gltf-model>
+<a-gltf-model src="./floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
+<a-gltf-model src="./floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
 <a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./wall29.glb"></a-gltf-model>
 <a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
 <a-gltf-model rotation="0 180 90" position="-1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
@@ -409,8 +410,8 @@
 <a-gltf-model src="./2floor.glb" position="-1.5 3 0"></a-gltf-model>
 </a-entity>
 <a-entity class="corridorslim" position="0 0 12">
-<a-gltf-model src="./floo88.glb" position="0.5 0 0"></a-gltf-model>
-<a-gltf-model src="./floo88.glb" position="-1.5 0 0"></a-gltf-model>
+<a-gltf-model src="./floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
+<a-gltf-model src="./floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
 <a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./wall29.glb"></a-gltf-model>
 <a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
 <a-gltf-model rotation="0 180 90" position="-1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
@@ -422,8 +423,8 @@
 
 <a-entity class="eastcorner" position="2 0 14">
 <a-entity class="corridorslim" position="3.5 0 0">
-<a-gltf-model src="./floo88.glb" position="0.5 0 0"></a-gltf-model>
-<a-gltf-model src="./floo88.glb" position="-1.5 0 0"></a-gltf-model>
+<a-gltf-model src="./floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
+<a-gltf-model src="./floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
 <a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./wall29.glb"></a-gltf-model>
 <a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
 <a-gltf-model rotation="-90 180 90" position="-1.5 1 -0.5" src="./wall99.glb"></a-gltf-model>
@@ -432,8 +433,8 @@
 <a-gltf-model src="./2floor.glb" position="-1.5 3 0"></a-gltf-model>
 </a-entity>
 <a-entity class="corridorslim" position="3.5 0 2">
-<a-gltf-model src="./floo88.glb" position="0.5 0 0"></a-gltf-model>
-<a-gltf-model src="./floo88.glb" position="-1.5 0 0"></a-gltf-model>
+<a-gltf-model src="./floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
+<a-gltf-model src="./floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
 <a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./wall29.glb"></a-gltf-model>
 <a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
 <a-gltf-model src="./2floor.glb" position="0.5 3 0"></a-gltf-model>
@@ -449,8 +450,8 @@
 <a-entity rotation="0 0 0" position="0 0 2" class="corridor">
     <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
     <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
     <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
@@ -465,31 +466,31 @@
 <a-entity class="raisedCorridor" position="4 3 0">
 <a-entity class="hall" position="0 0 2">
 <a-gltf-model position="0 2 0" src="./2floor.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
 <a-gltf-model rotation="90 0 -90" position="-0.95 1 0" src="./wall29.glb"></a-gltf-model>
 <a-gltf-model rotation="90 180 -90" position="1 1 0" src="./wall29.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="hall" position="0 0 4">
 <a-gltf-model position="0 2 0" src="./2floor.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
 <a-gltf-model rotation="90 0 -90" position="-0.95 1 0" src="./wall29.glb"></a-gltf-model>
 <a-gltf-model rotation="90 180 -90" position="1 1 0" src="./wall29.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="hall" position="0 0 6">
 <a-gltf-model position="0 2 0" src="./2floor.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
 <a-gltf-model rotation="90 0 -90" position="-0.95 1 0" src="./wall29.glb"></a-gltf-model>
 <a-gltf-model rotation="90 180 -90" position="1 1 0" src="./wall29.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="hall" position="0 0 8">
 <a-gltf-model position="0 2 0" src="./2floor.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
 <a-gltf-model rotation="90 0 -90" position="-0.95 1 0" src="./wall29.glb"></a-gltf-model>
 <a-gltf-model rotation="90 180 -90" position="1 1 0" src="./wall29.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="hall" position="0 0 10">
 <a-gltf-model position="0 2 0" src="./2floor.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
 <a-gltf-model rotation="90 0 -90" position="-0.95 1 0" src="./wall29.glb"></a-gltf-model>
 <a-gltf-model rotation="90 180 -90" position="1 1 0" src="./wall29.glb"></a-gltf-model>
 </a-entity>
@@ -499,11 +500,11 @@
 <a-entity class="bridge" position="4 3 0">
 <a-gltf-model rotation="0 -90 0" position="1 -1 0" src="./support.glb"></a-gltf-model>
 <a-gltf-model rotation="0 -90 0" position="-1 -1 0" src="./support.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 2" src="./floo88.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 4" src="./floo88.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 6" src="./floo88.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 8" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 2" src="./floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 4" src="./floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 6" src="./floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 8" src="./floo88.glb" static-body></a-gltf-model>
 <a-gltf-model rotation="0 90 0" position="1 -1 8" src="./support.glb"></a-gltf-model>
 <a-gltf-model rotation="0 90 0" position="-1 -1 8" src="./support.glb"></a-gltf-model>
 </a-entity>
@@ -616,39 +617,39 @@
 
 <a-entity class="5x5" position="6 0 0">
 <a-entity class="floor" position="0 0 8">
-<a-gltf-model position="-6 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./floo88.glb" static-body></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 6">
-<a-gltf-model position="-6 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./floo88.glb" static-body></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 4">
-<a-gltf-model position="-6 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./floo88.glb" static-body></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 2">
-<a-gltf-model position="-6 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./floo88.glb" static-body></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 0">
-<a-gltf-model position="-6 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./floo88.glb" static-body></a-gltf-model>
 </a-entity>
 </a-entity>
 <a-entity class="5x5ceil" position="6 5 0">
@@ -693,39 +694,39 @@
 <a-entity class="eastRoom">
 <a-entity class="5x5" position="6 3 24">
 <a-entity class="floor" position="0 0 8">
-<a-gltf-model position="-6 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./floo88.glb" static-body></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 6">
-<a-gltf-model position="-6 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./floo88.glb" static-body></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 4">
-<a-gltf-model position="-6 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./floo88.glb" static-body></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 2">
-<a-gltf-model position="-6 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./floo88.glb" static-body></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 0">
-<a-gltf-model position="-6 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./floo88.glb" static-body></a-gltf-model>
 </a-entity>
 </a-entity>
 <a-entity class="5x5ceil" position="6 5 24">
@@ -768,13 +769,13 @@
 
 <a-entity class="exitwest" position="4 3 22">
 <a-gltf-model position="0 2 0" src="./2floor.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
 <a-gltf-model rotation="90 0 -90" position="-0.95 1 0" src="./wall29.glb"></a-gltf-model>
 <a-gltf-model rotation="90 180 -90" position="1 1 0" src="./wall29.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="exitwest" position="4 3 34">
 <a-gltf-model position="0 2 0" src="./2floor.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
 <a-gltf-model rotation="90 0 -90" position="-0.95 1 0" src="./wall29.glb"></a-gltf-model>
 <a-gltf-model rotation="90 180 -90" position="1 1 0" src="./wall29.glb"></a-gltf-model>
 </a-entity>
@@ -817,8 +818,8 @@
 <a-entity rotation="0 0 0" position="-2 0 16" class="corridor">
     <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
     <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
     <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
@@ -827,8 +828,8 @@
 <a-entity rotation="0 0 0" position="-4 0 16" class="corridor">
     <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
     <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
     <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
@@ -837,8 +838,8 @@
 <a-entity rotation="0 0 0" position="-6 0 16" class="corridor">
     <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
     <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
     <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
@@ -847,8 +848,8 @@
 <a-entity rotation="0 0 0" position="-8 0 16" class="corridor">
     <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
     <a-gltf-model rotation="-90 0 180" position="0.5 1 -2" src="./wall99.glb"></a-gltf-model>
     <a-gltf-model rotation="-90 0 180" position="0.5 3 -2" src="./wall99.glb"></a-gltf-model>
     <a-gltf-model rotation="90 90 180" position="0 1 -2.5" src="./wall99.glb"></a-gltf-model>
@@ -859,8 +860,8 @@
 <a-entity rotation="0 0 0" position="-10 0 16" class="corridor">
     <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
     <a-gltf-model rotation="90 90 0" position="-1 1 0" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 180 90" position="-1 2.5 0" src="./wall99.glb"></a-gltf-model>
     <a-gltf-model rotation="90 90 0" position="-1 1 -2" src="./wall29.glb"></a-gltf-model>
@@ -871,8 +872,8 @@
 <a-entity rotation="0 -90 0" position="-10 0 12" class="corridor">
     <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
     <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
     <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
@@ -881,8 +882,8 @@
 <a-entity rotation="0 -90 0" position="-10 0 10" class="corridor">
     <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
     <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
     <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
@@ -891,8 +892,8 @@
 <a-entity rotation="0 -90 0" position="-10 0 8" class="corridor">
     <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
     <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
     <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
@@ -901,8 +902,8 @@
 <a-entity rotation="0 -90 0" position="-10 0 6" class="corridor">
     <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
     <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
     <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
@@ -911,8 +912,8 @@
 <a-entity rotation="0 -90 0" position="-10 0 4" class="corridor">
     <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
     <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
     <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
@@ -921,8 +922,8 @@
 <a-entity rotation="0 -90 0" position="-10 0 2" class="corridor">
     <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
     <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
     <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
@@ -931,8 +932,8 @@
 <a-entity rotation="0 -90 0" position="-10 0 0" class="corridor">
     <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
     <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
     <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
     <a-gltf-model position="0 3 0" src="./2floor.glb"></a-gltf-model>
@@ -948,7 +949,10 @@
 
 <a-gltf-model id="mesh" src="./navmesh0.glb" scale="10 10 10" rotation="0 -90 0" position="7 0 8" visible="false" nav-mesh></a-gltf-model>  
 
+<a-entity class="why">
+<a-entity static-body><a-gltf-model src="./wall29.glb" rotation="90 0 0" visible="false" scale="6 1 1.5" position="9 1.5 -3"></a-gltf-model></a-entity>
 
+</a-entity>
 
 
 
@@ -957,7 +961,10 @@
     shape: "box",
     boxHalfExtents: [0.5, 0.5, 0.5]
   }' id="npc" gltf-model="door1.glb" nav-agent="speed: 11.5" scale="0.5 0.5 0.5" position="0 100 0"></a-entity>
-<a-box id="jim" kinematic-body color="green" position="0 200 0" scale="2 2 2"></a-box>
+<a-box id="jim" kinematic-body='{
+    shape: "box",
+    boxHalfExtents: [2.5, 2.5, 2.5]
+  }' color="green" position="0 2 0" scale="0.5 0.5 0.5"></a-box>
 
 </a-scene>
 
@@ -1042,13 +1049,29 @@ if (type == 'x') {
 }
    
 }
-function finish(i,spawn,type) {
+async function finish(i,spawn,type) {
+    if (i==5) {
+
+    
     door(i,spawn,type)
+    } else {
+    popup.setAttribute('visible',true)
+    await new Promise(r => setTimeout(r, 3000));
+    popup.setAttribute('visible',false)
+    }
+
 }
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     var word = (player.getAttribute('position').x +' '+ player.getAttribute('position').y +' '+ player.getAttribute('position').z)
         jim.setAttribute('animation',{property: 'position', to: word, dur: '1000', startEvents: 'lod'})
+        jim.emit('lod')
+        console.log(player.getAttribute('position'))
+
+} 
+  if (event.key === '1') {
+    var word = (player.getAttribute('position').x +' '+ (player.getAttribute('position').y + 1) +' '+ player.getAttribute('position').z)
+        jim.setAttribute('animation',{property: 'position', to: word, dur: '100', startEvents: 'lod'})
         jim.emit('lod')
         console.log(player.getAttribute('position'))
 
