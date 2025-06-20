@@ -24,7 +24,7 @@
 
 <a-scene physics="gravity: 0" inspector-plugin-recast cursor="rayOrigin:mouse"  fog="type: exponential; color: #111111; density:0.4;">
        <!--player-->
-<a-entity distance-checker static-body id="player" position="-8.5 0 0" movement-controls="constrainToNavMesh: true;speed:0.55;"> 
+<a-entity distance-checker static-body id="player" position="-9 0 1" movement-controls="constrainToNavMesh: true;speed:0.55;"> 
             <a-entity id="htd" camera look-controls="enabled:true; pointerLockEnabled:true" extended-wasd-controls position="0 1.6 0">
                 <a-gltf-model id="gun" src="/gun3.glb" scale="0.2 0.2 0.2" position="0.3 -0.25 -0.3" rotation="0 90 0"></a-gltf-model>
                 <a-entity cursor position="0 0 -1" geometry="primitive: circle; radius: 0.01" material="color: black; shader: flat"></a-entity>
@@ -32,6 +32,8 @@
 
                 <a-image id="popup" visible="false" position="0 -0.06 -0.1" src="./end221.png" scale="0.15 0.05 0.05"></a-image>
                 <!--<a-light type="spot" color="#caffaa" light="castShadow:true; angle:35; " position="0 1 2" intensity="1"></a-light>-->
+                <a-image id="end" visible="false" position="0 0 -0.1" src="./winscreen.png" scale="0.1020408163265306122448979591837 0.1282051282051282051282051282051 0.2"></a-image>
+
             </a-entity>
 </a-entity>
         <!--sky-->
@@ -1003,6 +1005,12 @@
 <a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5" position="1 0 13"></a-gltf-model>
 <a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5" position="7 0 19"></a-gltf-model>
 <a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5" position="7 0 13"></a-gltf-model>
+
+<a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5" position="1 3 31"></a-gltf-model>
+<a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5" position="1 3 25"></a-gltf-model>
+<a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5" position="7 3 31"></a-gltf-model>
+<a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5" position="7 3 25"></a-gltf-model>
+<a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5" position="5 3 -5"></a-gltf-model>
 <a-gltf-model id="jim" kinematic-body='{
     shape: "box",
     boxHalfExtents: [2.5, 2.5, 2.5]
@@ -1105,9 +1113,13 @@ if (type == 'x') {
 }
 async function finish(i,spawn,type) {
     if (i==5) {
-
-    
     door(i,spawn,type)
+    await new Promise(r => setTimeout(r, 300));
+    end.setAttribute('visible',true)
+    await new Promise(r => setTimeout(r, 3000));
+    window.location.replace('./index.html')
+    
+    
     } else {
     popup.setAttribute('visible',true)
     await new Promise(r => setTimeout(r, 3000));
@@ -1161,6 +1173,10 @@ AFRAME.registerComponent('heatseeker', {
         if (e.detail.body.el.getAttribute('id') == 'player') {
             health--
             document.querySelector('#healthbar').setAttribute('src','./healthbar' + health + '.png')
+            if (health <= 0) {
+    health--
+death()
+        }
         }
       });
     },
@@ -1276,8 +1292,13 @@ AFRAME.registerComponent('gunanim', {
     }
 })
   //document.querySelector('#gun').setAttribute('distance-checker', '');
-if (health == 0) {
-
+mesh.setAttribute('src','./navmesh0.glb')
+        async function death() {
+            
+    end.setAttribute('src','./losescreen.png')
+    end.setAttribute('visible',true)
+    await new Promise(r => setTimeout(r, 3000));
+    window.location.replace('./index.html')
         }
     </script>
 </body>
