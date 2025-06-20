@@ -22,14 +22,16 @@
 
 
 
-<a-scene physics="gravity: 0" inspector-plugin-recast cursor="rayOrigin:mouse"  fog="type: exponential; color: #111111; density:0.000000000000004;">
+<a-scene physics="gravity: 0" inspector-plugin-recast cursor="rayOrigin:mouse"  fog="type: exponential; color: #111111; density:0.4;">
        <!--player-->
-<a-entity distance-checker static-body id="player" position="0 0 0" movement-controls="constrainToNavMesh: true;speed:0.55;"> 
+<a-entity distance-checker static-body id="player" position="-8.5 0 0" movement-controls="constrainToNavMesh: true;speed:0.55;"> 
             <a-entity id="htd" camera look-controls="enabled:true; pointerLockEnabled:true" extended-wasd-controls position="0 1.6 0">
-                <a-gltf-model id="gun" src="/boltgun_warhammer_40k (1).glb" scale="0.002 0.002 0.002" position="0.5 -0.25 -0.2" rotation="0 180 0"></a-gltf-model>
+                <a-gltf-model id="gun" src="/gun3.glb" scale="0.2 0.2 0.2" position="0.3 -0.25 -0.3" rotation="0 90 0"></a-gltf-model>
                 <a-entity cursor position="0 0 -1" geometry="primitive: circle; radius: 0.01" material="color: black; shader: flat"></a-entity>
+                                <a-image id="healthbar" position="0 -0.06 -0.1" src="./healthbar5.png" scale="0.15 0.01 0.05"></a-image>
+
                 <a-image id="popup" visible="false" position="0 -0.06 -0.1" src="./end221.png" scale="0.15 0.05 0.05"></a-image>
-                <a-light type="spot" color="#caffaa" light="castShadow:true; angle:35; " position="0 1 2" intensity="1"></a-light>
+                <!--<a-light type="spot" color="#caffaa" light="castShadow:true; angle:35; " position="0 1 2" intensity="1"></a-light>-->
             </a-entity>
 </a-entity>
         <!--sky-->
@@ -713,6 +715,8 @@
 <a-gltf-model position="2 0 0" src="./ceil.glb"></a-gltf-model>
 </a-entity>
 </a-entity>
+
+
 </a-entity>
 
 <a-entity class="eastRoom">
@@ -994,34 +998,38 @@
 <a-entity static-body><a-gltf-model src="./wall29.glb" rotation="90 -90 0" visible="false" scale="9 1 1.5" position="-11 1.5 8"></a-gltf-model></a-entity>
 </a-entity>
 
-
-
-<a-entity dynamic-body='{
-    shape: "box",
-    boxHalfExtents: [0.5, 0.5, 0.5]
-  }' id="npc" gltf-model="door1.glb" nav-agent="speed: 11.5" scale="0.5 0.5 0.5" position="0 100 0"></a-entity>
+<a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5" position="0 0 0"></a-gltf-model>
+<a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5" position="1 0 19"></a-gltf-model>
+<a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5" position="1 0 13"></a-gltf-model>
+<a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5" position="7 0 19"></a-gltf-model>
+<a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5" position="7 0 13"></a-gltf-model>
 <a-gltf-model id="jim" kinematic-body='{
     shape: "box",
     boxHalfExtents: [2.5, 2.5, 2.5]
 }' color="green" position="0 2 0" scale="0.5 0.5 0.5" src="./spike.glb"></a-gltf-model>
-<a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5"></a-gltf-model>
-<a-gltf-model id="enemy" src="./slime4.glb" scale="1.5 1.5 1.5" position="0 0 2"></a-gltf-model>
+
+<!--<a-entity dynamic-body='{
+    shape: "box",
+    boxHalfExtents: [0.5, 0.5, 0.5]
+  }' id="npc" gltf-model="door1.glb" nav-agent="speed: 11.5" scale="0.5 0.5 0.5" position="0 100 0"></a-entity>
+<a-gltf-model id="enemy" src="./slime4.glb" scale="1.5 1.5 1.5" position="0 0 2"></a-gltf-model>-->
 </a-scene>
 
 
 
     <script>
+        
 
-
+        document.querySelector('#jim').setAttribute('look-at-player', '');
         document.querySelector('#jim').setAttribute('heatseeker', '');
+        document.querySelector('#gun').setAttribute('gunanim', '');
         let enems = document.querySelectorAll('#enemy')
         for(let i=0; i< enems.length; i++) {
             enems[i].setAttribute('enemys', '')
+            console.log(i)
         }
-        //document.getElementById('enemy').addEventListener('click',function () {
-         //   this.el.remove()
-        //})
 
+        let health = 6
         var cooldown =  false
         const fil = ['./door1.glb','./floo88.glb','./wall2.glb','./wall.glb']
         async function funny() {
@@ -1140,9 +1148,7 @@ if(event.key === '2') {
 }
 })
 AFRAME.registerComponent('heatseeker', {
-    schema:{
-
-    },
+    schema:{},
     init: async function () {
       const player = document.querySelector('#player');
       const homer = (player.getAttribute('position').x + " " + player.getAttribute('position').y + " " + player.getAttribute('position').z)
@@ -1152,8 +1158,9 @@ AFRAME.registerComponent('heatseeker', {
       this.el.addEventListener("collide", (e) => {
         //console.log("Box1 collided with", e.detail.body.el);
         this.el.remove()
-        if (e.detail.body.el.getAttribute('id') != 'player') {
-            console.log('death')
+        if (e.detail.body.el.getAttribute('id') == 'player') {
+            health--
+            document.querySelector('#healthbar').setAttribute('src','./healthbar' + health + '.png')
         }
       });
     },
@@ -1163,12 +1170,13 @@ AFRAME.registerComponent('heatseeker', {
         let closer = []
       const player = document.querySelector('#player');
       const target = document.querySelectorAll('#enemy');
+      console.log(target)
       for (let i = 0; i < target.length; i++) {
       if (!player || !target) return;
 
       const playerPos = player.object3D.position;
       const targetPos = target[i].object3D.position;
-
+console.log(targetPos)
       const distance = playerPos.distanceTo(targetPos);
       closer[i] = distance
       }
@@ -1178,9 +1186,10 @@ AFRAME.registerComponent('heatseeker', {
       for (let i = 0; i< closer.length; i++) {
         if (closer[i] == distance) {
             enemy = i
+            console.log(closer)
         }
       }
-      let enemypos = (target[enemy].getAttribute('position').x + " " + (target[enemy].getAttribute('position').y + 1) + " " + target[enemy].getAttribute('position').z) 
+      let enemypos = (target[enemy].getAttribute('position').x + " " + (target[enemy].getAttribute('position').y + 0.5) + " " + target[enemy].getAttribute('position').z) 
       
     const scene = document.querySelector('a-scene');
         const box = document.createElement('a-gltf-model');
@@ -1199,11 +1208,12 @@ AFRAME.registerComponent('enemys', {
     init: function() {
         this.el.addEventListener('click', (e) => {
             this.el.remove()
+            document.querySelector('#gun').removeAttribute('gunanim')
+        document.querySelector('#gun').setAttribute('gunanim', '');
         })
     }
 })
-
- AFRAME.registerComponent('distance-checker', {
+AFRAME.registerComponent('distance-checker', {
     tick: function () {
           if (document.getElementById('jim')) {
 
@@ -1245,10 +1255,7 @@ AFRAME.registerComponent('enemys', {
     
 }
   });
-
-  document.querySelector('#jim').setAttribute('look-at-player', '');
-  //document.querySelector('#gun').setAttribute('distance-checker', '');
-    AFRAME.registerComponent('look-at-player', {
+AFRAME.registerComponent('look-at-player', {
     update: function () {
       const player = document.querySelector('#player');
       if (!player) return;
@@ -1257,8 +1264,21 @@ AFRAME.registerComponent('enemys', {
       this.el.object3D.lookAt(playerPos);
     }
   });
+AFRAME.registerComponent('gunanim', {
+    update: async function() {
+        await this.el.setAttribute('src','./gunb.glb')
+        await new Promise(r => setTimeout(r, 500));
+        await this.el.setAttribute('src','./gunc.glb')
+        await new Promise(r => setTimeout(r, 500));
+        await this.el.setAttribute('src','./gund.glb')
+        await new Promise(r => setTimeout(r, 500));
+        this.el.setAttribute('src','./guna.glb')
+    }
+})
+  //document.querySelector('#gun').setAttribute('distance-checker', '');
+if (health == 0) {
 
-
+        }
     </script>
 </body>
 </html>
