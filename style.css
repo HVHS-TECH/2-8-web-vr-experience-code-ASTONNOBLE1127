@@ -37,7 +37,7 @@ a,p {
 
 }
 html {
-    background-image: url(./facultty.png);
+    background-image: url(.images/facultty.png);
     background-repeat: no-repeat;
     background-size:cover;
     overflow:hidden;

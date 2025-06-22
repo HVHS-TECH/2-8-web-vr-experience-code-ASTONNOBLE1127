@@ -4,301 +4,296 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="./style.css">
-    <title>Doomed</title>
-    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
-    <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js" crossorigin="anonymous"></script>
+        <title>Doomed</title>
+        <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+        <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js" crossorigin="anonymous"></script>
 
-    <!-- A-frame extras-->
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-    <script src="https://rawgit.com/donmccurdy/aframe-extras/v2.1.1/dist/aframe-extras.loaders.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/aframe-physics-system@4.0.1/dist/aframe-physics-system.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/n5r/aframe-physics-system@latest/aframe-physics-system.min.js"></script>
+        <!-- A-frame extras-->
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+        <script src="https://rawgit.com/donmccurdy/aframe-extras/v2.1.1/dist/aframe-extras.loaders.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/aframe-physics-system@4.0.1/dist/aframe-physics-system.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/n5r/aframe-physics-system@latest/aframe-physics-system.min.js"></script>
 
-<!--credits-->
-    <!--https://sketchfab.com/daraenor-->
+        <!--js-->
     </head> 
     <body>
-
-
-
-
-<a-scene physics="gravity: 0" inspector-plugin-recast cursor="rayOrigin:mouse"  fog="type: exponential; color: #111111; density:0.4;">
-       <!--player-->
-<a-entity distance-checker static-body id="player" position="-9 0 1" movement-controls="constrainToNavMesh: true;speed:0.55;"> 
-            <a-entity id="htd" camera look-controls="enabled:true; pointerLockEnabled:true" extended-wasd-controls position="0 1.6 0">
-                <a-gltf-model id="gun" src="/gun3.glb" scale="0.2 0.2 0.2" position="0.3 -0.25 -0.3" rotation="0 90 0"></a-gltf-model>
-                <a-entity cursor position="0 0 -1" geometry="primitive: circle; radius: 0.01" material="color: black; shader: flat"></a-entity>
-                                <a-image id="healthbar" position="0 -0.06 -0.1" src="./healthbar5.png" scale="0.15 0.01 0.05"></a-image>
-
-                <a-image id="popup" visible="false" position="0 -0.06 -0.1" src="./end221.png" scale="0.15 0.05 0.05"></a-image>
-                <!--<a-light type="spot" color="#caffaa" light="castShadow:true; angle:35; " position="0 1 2" intensity="1"></a-light>-->
-                <a-image id="end" visible="false" position="0 0 -0.1" src="./winscreen.png" scale="0.1020408163265306122448979591837 0.1282051282051282051282051282051 0.2"></a-image>
-
+        <a-scene physics="gravity: 0" inspector-plugin-recast cursor="rayOrigin:mouse"  fog="type: exponential; color: #111111; density:0.4;">
+       
+            <!--player-->
+            <a-entity distance-checker static-body id="player" position="-9 0 1" movement-controls="constrainToNavMesh: true;speed:0.55;"> 
+                <a-entity id="htd" camera look-controls="enabled:true; pointerLockEnabled:true" extended-wasd-controls position="0 1.6 0">
+                    <a-gltf-model id="gun" src="./glb/gun/guna.glb" scale="0.2 0.2 0.2" position="0.3 -0.25 -0.3" rotation="0 90 0"></a-gltf-model>
+                    <a-entity cursor position="0 0 -1" geometry="primitive: circle; radius: 0.01" material="color: black; shader: flat"></a-entity>
+                    <a-image id="healthbar" position="0 -0.06 -0.1" src="./images/healthbar5.png" scale="0.15 0.01 0.05"></a-image>
+                    <a-image id="popup" visible="false" position="0 -0.06 -0.1" src="./images/end221.png" scale="0.15 0.05 0.05"></a-image>
+                    <!--<a-light type="spot" color="#caffaa" light="castShadow:true; angle:35; " position="0 1 2" intensity="1"></a-light>-->
+                    <a-image id="end" visible="false" position="0 0 -0.1" src="./images/winscreen.png" scale="0.1020408163265306122448979591837 0.1282051282051282051282051282051 0.2"></a-image>
+                </a-entity>
             </a-entity>
-</a-entity>
-        <!--sky-->
-<a-sky></a-sky>
+
+            <!--sky-->
+            <a-sky></a-sky>
 
 <a-entity class="westRoom">
 
 <a-entity class="6x6ceil" position="0 5 -6">
 <a-entity class="floor" position="0 0 10">
-<a-gltf-model position="-6 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./ceil.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 8">
-<a-gltf-model position="-6 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./ceil.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 6">
-<a-gltf-model position="-6 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="4 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="6 0 0" src="./ceil.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="4 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="6 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 4">
-<a-gltf-model position="-6 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="4 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="6 0 0" src="./ceil.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="4 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="6 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 2">
-<a-gltf-model position="-6 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="4 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="6 0 0" src="./ceil.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="4 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="6 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 0">
-<a-gltf-model position="-6 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="4 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="6 0 0" src="./ceil.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="4 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="6 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 </a-entity>
 
 <a-entity class="roomExit">
         <a-entity rotation="0 0 0" position="4 0 0" class="corridor">
-            <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
-            <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-            <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-            <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
-            <a-gltf-model rotation="90 0 0" position="0 1 -3" src="./wall29.glb"></a-gltf-model>
-            <a-gltf-model rotation="0 90 90" position="0 2.5 -3" src="./wall99.glb"></a-gltf-model>
+            <a-gltf-model rotation="90 180 0" position="0 1 1" src="./glb/terrain/wall29.glb"></a-gltf-model>
+            <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./glb/terrain/wall99.glb"></a-gltf-model>
+            <a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+            <a-gltf-model position="0 0 -2" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+            <a-gltf-model rotation="90 0 0" position="0 1 -3" src="./glb/terrain/wall29.glb"></a-gltf-model>
+            <a-gltf-model rotation="0 90 90" position="0 2.5 -3" src="./glb/terrain/wall99.glb"></a-gltf-model>
             </a-entity>
         <a-entity rotation="0 0 0" position="6 0 0" class="corridor1">
-            <a-gltf-model rotation="90 180 0" position="0 3 1" src="./wall29.glb"></a-gltf-model>
-            <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
-            <a-gltf-model rotation="0 -90 90" position="0 4.5 1" src="./wall99.glb"></a-gltf-model>
-            <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-            <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
-            <a-gltf-model rotation="90 0 0" position="0 1 -3" src="./wall29.glb"></a-gltf-model>
-            <a-gltf-model rotation="0 90 90" position="0 2.5 -3" src="./wall99.glb"></a-gltf-model>
+            <a-gltf-model rotation="90 180 0" position="0 3 1" src="./glb/terrain/wall29.glb"></a-gltf-model>
+            <a-gltf-model rotation="90 180 0" position="0 1 1" src="./glb/terrain/wall29.glb"></a-gltf-model>
+            <a-gltf-model rotation="0 -90 90" position="0 4.5 1" src="./glb/terrain/wall99.glb"></a-gltf-model>
+            <a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+            <a-gltf-model position="0 0 -2" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+            <a-gltf-model rotation="90 0 0" position="0 1 -3" src="./glb/terrain/wall29.glb"></a-gltf-model>
+            <a-gltf-model rotation="0 90 90" position="0 2.5 -3" src="./glb/terrain/wall99.glb"></a-gltf-model>
         </a-entity>
 </a-entity>
 
 
 <a-entity class="iregFloors">
 <a-entity class="stairs" position="0 0.5 -6">
-<a-gltf-model static-body="shape: mesh" rotation="0 90 0" position="2 2 2" src="./wedge1.glb"></a-gltf-model>
-<a-gltf-model static-body="shape: mesh" rotation="0 90 0" position="2 2 0" src="./wedge1.glb"></a-gltf-model>
-<a-gltf-model static-body="shape: mesh" rotation="0 90 0" position="0 1 2" src="./wedge1.glb"></a-gltf-model>
-<a-gltf-model static-body="shape: mesh" rotation="0 90 0" position="0 1 0" src="./wedge1.glb"></a-gltf-model>
-<a-gltf-model static-body="shape: mesh" rotation="0 90 0" position="-2 0 2" src="./wedge1.glb"></a-gltf-model>
-<a-gltf-model static-body="shape: mesh" rotation="0 90 0" position="-2 0 0" src="./wedge1.glb"></a-gltf-model>
-<a-entity static-body><a-gltf-model rotation="0 90 90" position="0 0 3" src="./wall99.glb"></a-gltf-model></a-entity>
-<a-entity static-body><a-gltf-model rotation="90 0 0" position="2 0.5 3" src="./wall29.glb"></a-gltf-model></a-entity>
+<a-gltf-model static-body="shape: mesh" rotation="0 90 0" position="2 2 2" src="./glb/terrain/wedge1.glb"></a-gltf-model>
+<a-gltf-model static-body="shape: mesh" rotation="0 90 0" position="2 2 0" src="./glb/terrain/wedge1.glb"></a-gltf-model>
+<a-gltf-model static-body="shape: mesh" rotation="0 90 0" position="0 1 2" src="./glb/terrain/wedge1.glb"></a-gltf-model>
+<a-gltf-model static-body="shape: mesh" rotation="0 90 0" position="0 1 0" src="./glb/terrain/wedge1.glb"></a-gltf-model>
+<a-gltf-model static-body="shape: mesh" rotation="0 90 0" position="-2 0 2" src="./glb/terrain/wedge1.glb"></a-gltf-model>
+<a-gltf-model static-body="shape: mesh" rotation="0 90 0" position="-2 0 0" src="./glb/terrain/wedge1.glb"></a-gltf-model>
+<a-entity static-body><a-gltf-model rotation="0 90 90" position="0 0 3" src="./glb/terrain/wall99.glb"></a-gltf-model></a-entity>
+<a-entity static-body><a-gltf-model rotation="90 0 0" position="2 0.5 3" src="./glb/terrain/wall29.glb"></a-gltf-model></a-entity>
 </a-entity>
 <a-entity class="bridge" position="4 2 0">
-<a-gltf-model rotation="0 -90 0" position="1 0 -2" src="./support.glb"></a-gltf-model>
-<a-gltf-model rotation="0 -90 0" position="-1 0 -2" src="./support.glb"></a-gltf-model>
-<a-gltf-model static-body position="0 1 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model static-body position="0 1 -2" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model rotation="0 90 0" position="1 0 0" src="./support.glb"></a-gltf-model>
-<a-gltf-model rotation="0 90 0" position="-1 0 0" src="./support.glb"></a-gltf-model>
+<a-gltf-model rotation="0 -90 0" position="1 0 -2" src="./glb/terrain/support.glb"></a-gltf-model>
+<a-gltf-model rotation="0 -90 0" position="-1 0 -2" src="./glb/terrain/support.glb"></a-gltf-model>
+<a-gltf-model static-body position="0 1 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model static-body position="0 1 -2" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model rotation="0 90 0" position="1 0 0" src="./glb/terrain/support.glb"></a-gltf-model>
+<a-gltf-model rotation="0 90 0" position="-1 0 0" src="./glb/terrain/support.glb"></a-gltf-model>
 </a-entity>
 
 <a-entity static-body class="floorRaised" position="4 3 -6">
-<a-gltf-model position="2 0 2" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="0 0 2" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="2 0 2" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 2" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
 </a-entity>
 </a-entity>
 
 <a-entity class="westRoomWalls">
 <a-entity static-body class="wallnorth1" rotation="0 0 0" position="7 4 -2">
-    <a-gltf-model rotation="90 180 -90" position="0 0 -4" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="90 180 -90" position="0 0 -2" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="90 180 -90" position="0 0 2" src="./wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 -90" position="0 0 -4" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 -90" position="0 0 -2" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 -90" position="0 0 2" src="./glb/terrain/wall29.glb"></a-gltf-model>
 </a-entity>
 
 <a-entity static-body class="wallnorth2" position="2.9 1 2">
 <a-entity rotation="0 0 0" position="0 0 0">
-    <a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 <a-entity rotation="0 0 0" position="0 0 2">
-    <a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 </a-entity>
 
 <a-entity static-body class="walleast" position="-2 1 5">
 <a-entity rotation="0 -90 0" position="4 0 0">
-    <a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 <a-entity rotation="0 -90 0" position="2 0 0">
-    <a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 <a-entity rotation="0 -90 0" position="0 0 0">
-    <a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 <a-entity rotation="0 -90 0" position="-2 0 0">
-    <a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 <a-entity rotation="0 -90 0" position="-4 0 0">
-    <a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 </a-entity>
 
 <a-entity static-body class="wallsouth" position="-7 1 0">
 <a-entity class="wall" rotation="0 180 0" position="0 0 4">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="wall" rotation="0 180 0" position="0 0 2">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="wall" rotation="0 180 0" position="0 0 0">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="wall" rotation="0 180 0" position="0 0 -2">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="wall" rotation="0 180 0" position="0 0 -4">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="wall" rotation="0 180 0" position="0 0 -6">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 </a-entity>
 
 <a-entity static-body class="wallwest" position="0 1 -7">
 <a-entity class="wall" rotation="0 90 0" position="-6 0 0">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="wall" rotation="0 90 0" position="-4 0 0">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="wall" rotation="0 90 0" position="-2 0 0">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="wall" rotation="0 90 0" position="0 0 0">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="wall1" rotation="0 90 0" position="2 0 0">
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="wall1" rotation="0 90 0" position="4 0 0">
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="wall1" rotation="0 90 0" position="6 0 0">
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 </a-entity>
 </a-entity>
 
 <a-entity class="regFloors" position="-2 0 0" id="ew" static-body>
 <a-entity class="floor" position="0 0 4">
-<a-gltf-model position="-4 0 0" src="./floo88.glb" ></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb" ></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb" ></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb" ></a-gltf-model>
-<a-gltf-model position="4 0 0" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/floo88.glb" ></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/floo88.glb" ></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" ></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/floo88.glb" ></a-gltf-model>
+<a-gltf-model position="4 0 0" src="./glb/terrain/floo88.glb" ></a-gltf-model>
 </a-entity>
 
 <a-entity class="floor" position="0 0 2">
-<a-gltf-model position="-4 0 0" src="./floo88.glb" ></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb" ></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb" ></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb" ></a-gltf-model>
-<a-gltf-model position="4 0 0" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/floo88.glb" ></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/floo88.glb" ></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" ></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/floo88.glb" ></a-gltf-model>
+<a-gltf-model position="4 0 0" src="./glb/terrain/floo88.glb" ></a-gltf-model>
 </a-entity>
 
 <a-entity class="floor" position="0 0 0">
-<a-gltf-model position="-4 0 0" src="./floo88.glb" ></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb" ></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb" ></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb" ></a-gltf-model>
-<a-gltf-model position="4 0 0" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/floo88.glb" ></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/floo88.glb" ></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" ></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/floo88.glb" ></a-gltf-model>
+<a-gltf-model position="4 0 0" src="./glb/terrain/floo88.glb" ></a-gltf-model>
 </a-entity>
 
 <a-entity class="floor" position="0 0 -2">
-<a-gltf-model position="-4 0 0" src="./floo88.glb" ></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb" ></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb" ></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb" ></a-gltf-model>
-<a-gltf-model position="4 0 0" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/floo88.glb" ></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/floo88.glb" ></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" ></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/floo88.glb" ></a-gltf-model>
+<a-gltf-model position="4 0 0" src="./glb/terrain/floo88.glb" ></a-gltf-model>
 </a-entity>
 
 <a-entity class="floorsquare" position="-4 0 -6">
-<a-gltf-model position="0 0 0" src="./floo88.glb" ></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb" ></a-gltf-model>
-<a-gltf-model position="2 0 2" src="./floo88.glb" ></a-gltf-model>
-<a-gltf-model position="0 0 2" src="./floo88.glb" ></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" ></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/floo88.glb" ></a-gltf-model>
+<a-gltf-model position="2 0 2" src="./glb/terrain/floo88.glb" ></a-gltf-model>
+<a-gltf-model position="0 0 2" src="./glb/terrain/floo88.glb" ></a-gltf-model>
 </a-entity>
 </a-entity>
 </a-entity>
@@ -306,242 +301,242 @@
 <a-entity class="northCorridor" position="8 0 0">
 <a-entity class="northwards" position="0 0 0">
         <a-entity rotation="0 0 0" position="0 0 0" class="corridor">
-            <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
-            <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-            <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-            <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
-            <a-gltf-model rotation="90 0 0" position="0 1 -3" src="./wall29.glb"></a-gltf-model>
-            <a-gltf-model rotation="0 90 90" position="0 2.5 -3" src="./wall99.glb"></a-gltf-model>
-            <a-gltf-model position="0 3 0" src="./ceil.glb"></a-gltf-model>
-            <a-gltf-model position="0 3 -2" src="./ceil.glb"></a-gltf-model>
+            <a-gltf-model rotation="90 180 0" position="0 1 1" src="./glb/terrain/wall29.glb"></a-gltf-model>
+            <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./glb/terrain/wall99.glb"></a-gltf-model>
+            <a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+            <a-gltf-model position="0 0 -2" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+            <a-gltf-model rotation="90 0 0" position="0 1 -3" src="./glb/terrain/wall29.glb"></a-gltf-model>
+            <a-gltf-model rotation="0 90 90" position="0 2.5 -3" src="./glb/terrain/wall99.glb"></a-gltf-model>
+            <a-gltf-model position="0 3 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+            <a-gltf-model position="0 3 -2" src="./glb/terrain/ceil.glb"></a-gltf-model>
         </a-entity>
         <a-entity rotation="0 0 0" position="2 0 0" class="corridor">
-            <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
-            <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-            <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-            <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
-            <a-gltf-model rotation="90 0 0" position="0 1 -3" src="./wall29.glb"></a-gltf-model>
-            <a-gltf-model rotation="0 90 90" position="0 2.5 -3" src="./wall99.glb"></a-gltf-model>
-            <a-gltf-model position="0 3 0" src="./ceil.glb"></a-gltf-model>
-            <a-gltf-model position="0 3 -2" src="./ceil.glb"></a-gltf-model>
+            <a-gltf-model rotation="90 180 0" position="0 1 1" src="./glb/terrain/wall29.glb"></a-gltf-model>
+            <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./glb/terrain/wall99.glb"></a-gltf-model>
+            <a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+            <a-gltf-model position="0 0 -2" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+            <a-gltf-model rotation="90 0 0" position="0 1 -3" src="./glb/terrain/wall29.glb"></a-gltf-model>
+            <a-gltf-model rotation="0 90 90" position="0 2.5 -3" src="./glb/terrain/wall99.glb"></a-gltf-model>
+            <a-gltf-model position="0 3 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+            <a-gltf-model position="0 3 -2" src="./glb/terrain/ceil.glb"></a-gltf-model>
         </a-entity>
 </a-entity>
 
 <a-entity class="westcorner" position="4 0 0">
         <a-entity rotation="0 0 0" position="0 0 0" class="corridor">
-            <a-gltf-model rotation="-90 -90 90" position="-0.5 1 1" src="./wall99.glb"></a-gltf-model>
-            <a-gltf-model rotation="-90 -90 90" position="-0.5 3 1" src="./wall99.glb"></a-gltf-model>
-            <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-            <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
-            <a-gltf-model rotation="90 0 0" position="0 1 -3" src="./wall29.glb"></a-gltf-model>
-            <a-gltf-model rotation="0 90 90" position="0 2.5 -3" src="./wall99.glb"></a-gltf-model>
-            <a-gltf-model position="0 3 0" src="./ceil.glb"></a-gltf-model>
-            <a-gltf-model position="0 3 -2" src="./ceil.glb"></a-gltf-model>
+            <a-gltf-model rotation="-90 -90 90" position="-0.5 1 1" src="./glb/terrain/wall99.glb"></a-gltf-model>
+            <a-gltf-model rotation="-90 -90 90" position="-0.5 3 1" src="./glb/terrain/wall99.glb"></a-gltf-model>
+            <a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+            <a-gltf-model position="0 0 -2" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+            <a-gltf-model rotation="90 0 0" position="0 1 -3" src="./glb/terrain/wall29.glb"></a-gltf-model>
+            <a-gltf-model rotation="0 90 90" position="0 2.5 -3" src="./glb/terrain/wall99.glb"></a-gltf-model>
+            <a-gltf-model position="0 3 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+            <a-gltf-model position="0 3 -2" src="./glb/terrain/ceil.glb"></a-gltf-model>
         </a-entity>
 
         <a-entity rotation="0 0 0" position="2 0 0" class="corridor">
-            <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-            <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
-            <a-gltf-model rotation="90 0 0" position="0 1 -3" src="./wall29.glb"></a-gltf-model>
-            <a-gltf-model rotation="0 90 90" position="0 2.5 -3" src="./wall99.glb"></a-gltf-model>
-            <a-gltf-model position="0 3 0" src="./ceil.glb"></a-gltf-model>
-            <a-gltf-model position="0 3 -2" src="./ceil.glb"></a-gltf-model>
+            <a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+            <a-gltf-model position="0 0 -2" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+            <a-gltf-model rotation="90 0 0" position="0 1 -3" src="./glb/terrain/wall29.glb"></a-gltf-model>
+            <a-gltf-model rotation="0 90 90" position="0 2.5 -3" src="./glb/terrain/wall99.glb"></a-gltf-model>
+            <a-gltf-model position="0 3 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+            <a-gltf-model position="0 3 -2" src="./glb/terrain/ceil.glb"></a-gltf-model>
         </a-entity>
 
         
 <a-entity class="wall1" rotation="0 0 0" position="3 1 -2">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 1.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 1.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="wall1" rotation="0 0 0" position="3 1 0">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 1.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 1.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 </a-entity>
 
-<a-gltf-model static-body="shape: mesh" onclick="door(1,5.5,'x')" id="door1" rotation="0 90 0" position="5.5 1.5 2" src="./door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
-<a-gltf-model static-body="shape: mesh" onclick="door(1,5.5,'x')" id="door2" rotation="180 90 0" position="5.5 1.5 2" src="./door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
+<a-gltf-model static-body="shape: mesh" onclick="door(1,5.5,'x')" id="door1" rotation="0 90 0" position="5.5 1.5 2" src="./glb/terrain/door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
+<a-gltf-model static-body="shape: mesh" onclick="door(1,5.5,'x')" id="door2" rotation="180 90 0" position="5.5 1.5 2" src="./glb/terrain/door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
 
 <a-entity class="eastwards" position="5.5 0 0">
 <a-entity class="corridorslim" position="0 0 2">
-<a-gltf-model src="./floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
-<a-gltf-model src="./floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="0 180 90" position="-1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="90 0 -90" position="-1.5 1 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model src="./ceil.glb" position="0.5 3 0"></a-gltf-model>
-<a-gltf-model src="./ceil.glb" position="-1.5 3 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="0 180 90" position="-1.5 2.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 0 -90" position="-1.5 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/ceil.glb" position="0.5 3 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/ceil.glb" position="-1.5 3 0"></a-gltf-model>
 </a-entity>
 <a-entity class="corridorslim" position="0 0 4">
-<a-gltf-model src="./floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
-<a-gltf-model src="./floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="0 180 90" position="-1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="90 0 -90" position="-1.5 1 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model src="./ceil.glb" position="0.5 3 0"></a-gltf-model>
-<a-gltf-model src="./ceil.glb" position="-1.5 3 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="0 180 90" position="-1.5 2.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 0 -90" position="-1.5 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/ceil.glb" position="0.5 3 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/ceil.glb" position="-1.5 3 0"></a-gltf-model>
 </a-entity>
 <a-entity class="corridorslim" position="0 0 6">
-<a-gltf-model src="./floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
-<a-gltf-model src="./floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="0 180 90" position="-1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="90 0 -90" position="-1.5 1 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model src="./ceil.glb" position="0.5 3 0"></a-gltf-model>
-<a-gltf-model src="./ceil.glb" position="-1.5 3 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="0 180 90" position="-1.5 2.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 0 -90" position="-1.5 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/ceil.glb" position="0.5 3 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/ceil.glb" position="-1.5 3 0"></a-gltf-model>
 </a-entity>
 <a-entity class="corridorslim" position="0 0 8">
-<a-gltf-model src="./floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
-<a-gltf-model src="./floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="0 180 90" position="-1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="90 0 -90" position="-1.5 1 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model src="./ceil.glb" position="0.5 3 0"></a-gltf-model>
-<a-gltf-model src="./ceil.glb" position="-1.5 3 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="0 180 90" position="-1.5 2.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 0 -90" position="-1.5 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/ceil.glb" position="0.5 3 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/ceil.glb" position="-1.5 3 0"></a-gltf-model>
 </a-entity>
 <a-entity class="corridorslim" position="0 0 10">
-<a-gltf-model src="./floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
-<a-gltf-model src="./floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="0 180 90" position="-1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="90 0 -90" position="-1.5 1 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model src="./ceil.glb" position="0.5 3 0"></a-gltf-model>
-<a-gltf-model src="./ceil.glb" position="-1.5 3 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="0 180 90" position="-1.5 2.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 0 -90" position="-1.5 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/ceil.glb" position="0.5 3 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/ceil.glb" position="-1.5 3 0"></a-gltf-model>
 </a-entity>
 <a-entity class="corridorslim" position="0 0 12">
-<a-gltf-model src="./floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
-<a-gltf-model src="./floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="0 180 90" position="-1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="90 0 -90" position="-1.5 1 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model src="./ceil.glb" position="0.5 3 0"></a-gltf-model>
-<a-gltf-model src="./ceil.glb" position="-1.5 3 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="0 180 90" position="-1.5 2.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 0 -90" position="-1.5 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/ceil.glb" position="0.5 3 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/ceil.glb" position="-1.5 3 0"></a-gltf-model>
 </a-entity>
 </a-entity>
 
 <a-entity class="eastcorner" position="2 0 14">
 <a-entity class="corridorslim" position="3.5 0 0">
-<a-gltf-model src="./floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
-<a-gltf-model src="./floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="-90 180 90" position="-1.5 1 -0.5" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="-90 180 90" position="-1.5 3 -0.5" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model src="./ceil.glb" position="0.5 3 0"></a-gltf-model>
-<a-gltf-model src="./ceil.glb" position="-1.5 3 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="-90 180 90" position="-1.5 1 -0.5" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="-90 180 90" position="-1.5 3 -0.5" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/ceil.glb" position="0.5 3 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/ceil.glb" position="-1.5 3 0"></a-gltf-model>
 </a-entity>
 <a-entity class="corridorslim" position="3.5 0 2">
-<a-gltf-model src="./floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
-<a-gltf-model src="./floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model src="./ceil.glb" position="0.5 3 0"></a-gltf-model>
-<a-gltf-model src="./ceil.glb" position="-1.5 3 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/floo88.glb" static-body position="0.5 0 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/floo88.glb" static-body position="-1.5 0 0"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="1.5 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="1.5 2.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/ceil.glb" position="0.5 3 0"></a-gltf-model>
+<a-gltf-model src="./glb/terrain/ceil.glb" position="-1.5 3 0"></a-gltf-model>
 </a-entity>
 
-<a-gltf-model rotation="-90 90 90" position="1.5 1 0" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="-90 90 90" position="1.5 3 0" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="90 0 180" position="4 1 3" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="180 90 -90" position="4 2.5 3" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="90 0 180" position="2 1 3" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="180 90 -90" position="2 2.5 3" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="-90 90 90" position="1.5 1 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="-90 90 90" position="1.5 3 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 0 180" position="4 1 3" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="180 90 -90" position="4 2.5 3" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 0 180" position="2 1 3" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="180 90 -90" position="2 2.5 3" src="./glb/terrain/wall99.glb"></a-gltf-model>
 <a-entity rotation="0 0 0" position="0 0 2" class="corridor">
-    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 0" src="./ceil.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 -2" src="./ceil.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -2" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 </a-entity>
 
-<a-gltf-model static-body="shape: mesh" onclick="door(4,15.5,'z')" id="door7" rotation="0 0 0" position="2 1.5 15.5" src="./door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
-<a-gltf-model static-body="shape: mesh" onclick="door(4,15.5,'z')" id="door8" rotation="180 0 0" position="2 1.5 15.5" src="./door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
+<a-gltf-model static-body="shape: mesh" onclick="door(4,15.5,'z')" id="door7" rotation="0 0 0" position="2 1.5 15.5" src="./glb/terrain/door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
+<a-gltf-model static-body="shape: mesh" onclick="door(4,15.5,'z')" id="door8" rotation="180 0 0" position="2 1.5 15.5" src="./glb/terrain/door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
 </a-entity>
 
 <a-entity class="raisedCorridor" position="4 3 0">
 <a-entity class="hall" position="0 0 2">
-<a-gltf-model position="0 2 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model rotation="90 0 -90" position="-0.95 1 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="1 1 0" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model position="0 2 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model rotation="90 0 -90" position="-0.95 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="1 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="hall" position="0 0 4">
-<a-gltf-model position="0 2 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model rotation="90 0 -90" position="-0.95 1 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="1 1 0" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model position="0 2 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model rotation="90 0 -90" position="-0.95 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="1 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="hall" position="0 0 6">
-<a-gltf-model position="0 2 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model rotation="90 0 -90" position="-0.95 1 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="1 1 0" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model position="0 2 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model rotation="90 0 -90" position="-0.95 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="1 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="hall" position="0 0 8">
-<a-gltf-model position="0 2 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model rotation="90 0 -90" position="-0.95 1 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="1 1 0" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model position="0 2 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model rotation="90 0 -90" position="-0.95 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="1 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="hall" position="0 0 10">
-<a-gltf-model position="0 2 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model rotation="90 0 -90" position="-0.95 1 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="1 1 0" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model position="0 2 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model rotation="90 0 -90" position="-0.95 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="1 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
 </a-entity>
 </a-entity>
 
 <a-entity class="centerRoom" position="0 0 12">
 <a-entity class="bridge" position="4 3 0">
-<a-gltf-model rotation="0 -90 0" position="1 -1 0" src="./support.glb"></a-gltf-model>
-<a-gltf-model rotation="0 -90 0" position="-1 -1 0" src="./support.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model position="0 0 2" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model position="0 0 4" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model position="0 0 6" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model position="0 0 8" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model rotation="0 90 0" position="1 -1 8" src="./support.glb"></a-gltf-model>
-<a-gltf-model rotation="0 90 0" position="-1 -1 8" src="./support.glb"></a-gltf-model>
+<a-gltf-model rotation="0 -90 0" position="1 -1 0" src="./glb/terrain/support.glb"></a-gltf-model>
+<a-gltf-model rotation="0 -90 0" position="-1 -1 0" src="./glb/terrain/support.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 2" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 4" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 6" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 8" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model rotation="0 90 0" position="1 -1 8" src="./glb/terrain/support.glb"></a-gltf-model>
+<a-gltf-model rotation="0 90 0" position="-1 -1 8" src="./glb/terrain/support.glb"></a-gltf-model>
 </a-entity>
 
 <a-entity class="westwall" position="0 1 -1">
 <a-entity static-body>
 <a-entity class="wall1" rotation="0 90 0" position="0 0 0">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>            
 <a-entity class="wall1" rotation="0 90 0" position="2 0 0">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>    
 </a-entity>
 <a-entity static-body>
 <a-entity class="wall1" rotation="0 90 0" position="4 0 0">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 1.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 1.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 </a-entity>
 <a-entity static-body>        
 <a-entity class="wall1" rotation="0 90 0" position="6 0 0">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>        
 <a-entity class="wall1" rotation="0 90 0" position="8 0 0">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 </a-entity>
 </a-entity>
@@ -549,172 +544,172 @@
 <a-entity class="eastwall" position="0 1 9">
 <a-entity static-body>
 <a-entity class="wall1" rotation="0 -90 0" position="0 0 0">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>            
 <a-entity class="wall1" rotation="0 -90 0" position="2 0 0">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>    
 </a-entity>
 <a-entity static-body>
 <a-entity class="wall1" rotation="0 -90 0" position="4 0 0">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 1.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 1.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 </a-entity>
 <a-entity static-body>        
 <a-entity class="wall1" rotation="0 -90 0" position="6 0 0">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>        
 <a-entity class="wall1" rotation="0 -90 0" position="8 0 0">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 </a-entity>
 </a-entity>
 
 <a-entity class="northwall" position="9 1 0">
 <a-entity static-body class="wall1" rotation="0 0 0" position="0 0 0">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 <a-entity position="0 0 2">
 <a-entity static-body>
-<a-gltf-model rotation="90 0 90" position="0 0 -0.5" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="90 0 90" position="0 2 -0.5" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 0 90" position="0 0 -0.5" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 0 90" position="0 2 -0.5" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 <a-entity static-body>
-<a-gltf-model rotation="180 0 90" position="0 2.5 0" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="180 0 90" position="0 2.5 2" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 2" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="180 0 90" position="0 2.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="180 0 90" position="0 2.5 2" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 2" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 </a-entity>
 <a-entity static-body class="wall1" rotation="0 0 0" position="0 0 6">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 <a-entity static-body class="wall1" rotation="0 0 0" position="0 0 8">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 </a-entity>
 
 <a-entity class="southwall" position="-1 1 0">
 <a-entity static-body>
 <a-entity class="wall1" rotation="0 180 0" position="0 0 0">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 </a-entity>
 <a-entity position="0 0 2">
 <a-entity static-body>
-<a-gltf-model rotation="-90 180 90" position="0 0 -0.5" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="-90 180 90" position="0 2 -0.5" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="-90 180 90" position="0 0 -0.5" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="-90 180 90" position="0 2 -0.5" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 <a-entity static-body>
-<a-gltf-model rotation="180 180 90" position="0 2.5 0" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="0 180 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="180 180 90" position="0 2.5 2" src="./wall99.glb"></a-gltf-model>
-<a-gltf-model rotation="0 180 90" position="0 3.5 2" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="180 180 90" position="0 2.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="0 180 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="180 180 90" position="0 2.5 2" src="./glb/terrain/wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="0 180 90" position="0 3.5 2" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 </a-entity>
 <a-entity static-body>
 <a-entity class="wall1" rotation="0 180 0" position="0 0 6">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="wall1" rotation="0 180 0" position="0 0 8">
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./wall99.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 2 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="0 0 90" position="0 3.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
 </a-entity>
 </a-entity>
 </a-entity>
 
 <a-entity class="5x5" position="6 0 0">
 <a-entity class="floor" position="0 0 8">
-<a-gltf-model position="-6 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 6">
-<a-gltf-model position="-6 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 4">
-<a-gltf-model position="-6 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 2">
-<a-gltf-model position="-6 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 0">
-<a-gltf-model position="-6 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
 </a-entity>
 </a-entity>
 <a-entity class="5x5ceil" position="6 5 0">
 <a-entity class="floor" position="0 0 8">
-<a-gltf-model position="-6 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./ceil.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 6">
-<a-gltf-model position="-6 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./ceil.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 4">
-<a-gltf-model position="-6 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./ceil.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 2">
-<a-gltf-model position="-6 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./ceil.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 0">
-<a-gltf-model position="-6 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./ceil.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 </a-entity>
 
@@ -724,582 +719,300 @@
 <a-entity class="eastRoom">
 <a-entity class="5x5" position="6 3 24">
 <a-entity class="floor" position="0 0 8">
-<a-gltf-model position="-6 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 6">
-<a-gltf-model position="-6 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 4">
-<a-gltf-model position="-6 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 2">
-<a-gltf-model position="-6 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 0">
-<a-gltf-model position="-6 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
 </a-entity>
 </a-entity>
 <a-entity class="5x5ceil" position="6 5 24">
 <a-entity class="floor" position="0 0 8">
-<a-gltf-model position="-6 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./ceil.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 6">
-<a-gltf-model position="-6 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./ceil.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 4">
-<a-gltf-model position="-6 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./ceil.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 2">
-<a-gltf-model position="-6 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./ceil.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity class="floor" position="0 0 0">
-<a-gltf-model position="-6 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-4 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="-2 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="2 0 0" src="./ceil.glb"></a-gltf-model>
+<a-gltf-model position="-6 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-4 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="-2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="2 0 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 </a-entity>
 
 <a-entity class="exitwest" position="4 3 22">
-<a-gltf-model position="0 2 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 2 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
 <a-entity static-body>
-<a-gltf-model rotation="90 0 -90" position="-0.95 1 0" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 0 -90" position="-0.95 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
 </a-entity><a-entity static-body>
-<a-gltf-model rotation="90 180 -90" position="1 1 0" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="1 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
 </a-entity></a-entity>
 <a-entity class="exiteast" position="4 3 34">
-<a-gltf-model position="0 2 0" src="./ceil.glb"></a-gltf-model>
-<a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
+<a-gltf-model position="0 2 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+<a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
 <a-entity static-body>
-<a-gltf-model rotation="90 0 -90" position="-0.95 1 0" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 0 -90" position="-0.95 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
 </a-entity><a-entity static-body>
-<a-gltf-model rotation="90 180 -90" position="1 1 0" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="1 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
 </a-entity></a-entity>
 
 <a-entity class="northwall" position="9 4 24" static-body>
-<a-gltf-model rotation="90 180 -90" position="0 0 8" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 0 6" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 0 4" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 0 2" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 8" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 6" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 4" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 2" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 -90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
 </a-entity>
 
 <a-entity class="southwall" position="-1 4 24" static-body>
-<a-gltf-model rotation="90 180 90" position="0 0 8" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 90" position="0 0 6" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 90" position="0 0 4" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 90" position="0 0 2" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 90" position="0 0 0" src="./wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 90" position="0 0 8" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 90" position="0 0 6" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 90" position="0 0 4" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 90" position="0 0 2" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 90" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
 </a-entity>
 
 <a-entity class="westwall" position="0 4 23">
     <a-entity static-body>
-<a-gltf-model rotation="90 180 180" position="8 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 180" position="6 0 0" src="./wall29.glb"></a-gltf-model></a-entity>
+<a-gltf-model rotation="90 180 180" position="8 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 180" position="6 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model></a-entity>
 <a-entity static-body>
-<a-gltf-model rotation="90 180 180" position="2 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 180" position="0 0 0" src="./wall29.glb"></a-gltf-model></a-entity>
+<a-gltf-model rotation="90 180 180" position="2 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 180" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model></a-entity>
 </a-entity>
 
 <a-entity class="eastwall" position="0 4 33">
     <a-entity static-body>
-<a-gltf-model rotation="90 180 0" position="8 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 0" position="6 0 0" src="./wall29.glb"></a-gltf-model></a-entity>
+<a-gltf-model rotation="90 180 0" position="8 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 0" position="6 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model></a-entity>
 <a-entity static-body>
-<a-gltf-model rotation="90 180 0" position="2 0 0" src="./wall29.glb"></a-gltf-model>
-<a-gltf-model rotation="90 180 0" position="0 0 0" src="./wall29.glb"></a-gltf-model></a-entity>
+<a-gltf-model rotation="90 180 0" position="2 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+<a-gltf-model rotation="90 180 0" position="0 0 0" src="./glb/terrain/wall29.glb"></a-gltf-model></a-entity>
 </a-entity>
 
-<a-gltf-model static-body="shape: mesh" onclick="finish(5,4,'x')" id="door9" rotation="0 90 0" position="4 4 35" src="./door1.glb" scale="1 1 1"></a-gltf-model>
-<a-gltf-model static-body="shape: mesh" onclick="finish(5,4,'x')" id="door10" rotation="180 90 0" position="4 4 35" src="./door1.glb" scale="1 1 1"></a-gltf-model>
+<a-gltf-model static-body="shape: mesh" onclick="finish(5,4,'x')" id="door9" rotation="0 90 0" position="4 4 35" src="./glb/terrain/door1.glb" scale="1 1 1"></a-gltf-model>
+<a-gltf-model static-body="shape: mesh" onclick="finish(5,4,'x')" id="door10" rotation="180 90 0" position="4 4 35" src="./glb/terrain/door1.glb" scale="1 1 1"></a-gltf-model>
 </a-entity>
 
 <a-entity class="southCorridor">
 <a-entity rotation="0 0 0" position="-2 0 16" class="corridor">
-    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 0" src="./ceil.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 -2" src="./ceil.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -2" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity rotation="0 0 0" position="-4 0 16" class="corridor">
-    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 0" src="./ceil.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 -2" src="./ceil.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -2" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity rotation="0 0 0" position="-6 0 16" class="corridor">
-    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 0" src="./ceil.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 -2" src="./ceil.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -2" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity rotation="0 0 0" position="-8 0 16" class="corridor">
-    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model rotation="-90 0 180" position="0.5 1 -2" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model rotation="-90 0 180" position="0.5 3 -2" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model rotation="90 90 180" position="0 1 -2.5" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model rotation="90 90 180" position="0 3 -2.5" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 0" src="./ceil.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 -2" src="./ceil.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model rotation="-90 0 180" position="0.5 1 -2" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model rotation="-90 0 180" position="0.5 3 -2" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 90 180" position="0 1 -2.5" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 90 180" position="0 3 -2.5" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -2" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity rotation="0 0 0" position="-10 0 16" class="corridor">
-    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model rotation="90 90 0" position="-1 1 0" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 180 90" position="-1 2.5 0" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model rotation="90 90 0" position="-1 1 -2" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 180 90" position="-1 2.5 -2" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 0" src="./ceil.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 -2" src="./ceil.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model rotation="90 90 0" position="-1 1 0" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 180 90" position="-1 2.5 0" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 90 0" position="-1 1 -2" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 180 90" position="-1 2.5 -2" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -2" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity rotation="0 -90 0" position="-10 0 12" class="corridor">
-    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 0" src="./ceil.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 -1.95" src="./ceil.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -1.95" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity rotation="0 -90 0" position="-10 0 10" class="corridor">
-    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 0" src="./ceil.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 -1.95" src="./ceil.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -1.95" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity rotation="0 -90 0" position="-10 0 8" class="corridor">
-    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 0" src="./ceil.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 -1.95" src="./ceil.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -1.95" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity rotation="0 -90 0" position="-10 0 6" class="corridor">
-    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 0" src="./ceil.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 -1.95" src="./ceil.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -1.95" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity rotation="0 -90 0" position="-10 0 4" class="corridor">
-    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 0" src="./ceil.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 -1.95" src="./ceil.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -1.95" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity rotation="0 -90 0" position="-10 0 2" class="corridor">
-    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 0" src="./ceil.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 -1.95" src="./ceil.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -1.95" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 <a-entity rotation="0 -90 0" position="-10 0 0" class="corridor">
-    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 0 0" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model position="0 0 -2" src="./floo88.glb" static-body></a-gltf-model>
-    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./wall29.glb"></a-gltf-model>
-    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./wall99.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 0" src="./ceil.glb"></a-gltf-model>
-    <a-gltf-model position="0 3 -1.95" src="./ceil.glb"></a-gltf-model>
+    <a-gltf-model rotation="90 180 0" position="0 1 1" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 -90 90" position="0 2.5 1" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model position="0 0 -2" src="./glb/terrain/floo88.glb" static-body></a-gltf-model>
+    <a-gltf-model rotation="90 0 0" position="0 1 -2" src="./glb/terrain/wall29.glb"></a-gltf-model>
+    <a-gltf-model rotation="0 90 90" position="0 2.5 -2" src="./glb/terrain/wall99.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 0" src="./glb/terrain/ceil.glb"></a-gltf-model>
+    <a-gltf-model position="0 3 -1.95" src="./glb/terrain/ceil.glb"></a-gltf-model>
 </a-entity>
 
-<a-gltf-model static-body="shape: mesh" onclick="finish(2,-9.5,'x')" id="door3" rotation="0 90 0" position="-9.5 1.5 -1" src="./door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
-<a-gltf-model static-body="shape: mesh" onclick="finish(2,-9.5,'x')" id="door4" rotation="180 90 0" position="-9.5 1.5 -1" src="./door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
+<a-gltf-model static-body="shape: mesh" onclick="finish(2,-9.5,'x')" id="door3" rotation="0 90 0" position="-9.5 1.5 -1" src="./glb/terrain/door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
+<a-gltf-model static-body="shape: mesh" onclick="finish(2,-9.5,'x')" id="door4" rotation="180 90 0" position="-9.5 1.5 -1" src="./glb/terrain/door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
 
-<a-gltf-model static-body="shape: mesh" onclick="door(3,15.5,'z')" id="door5" rotation="0 0 0" position="-2 1.5 15.5" src="./door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
-<a-gltf-model static-body="shape: mesh" onclick="door(3,15.5,'z')" id="door6" rotation="180 0 0" position="-2 1.5 15.5" src="./door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
+<a-gltf-model static-body="shape: mesh" onclick="door(3,15.5,'z')" id="door5" rotation="0 0 0" position="-2 1.5 15.5" src="./glb/terrain/door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
+<a-gltf-model static-body="shape: mesh" onclick="door(3,15.5,'z')" id="door6" rotation="180 0 0" position="-2 1.5 15.5" src="./glb/terrain/door1.glb" scale="1.5 1.5 1.5"></a-gltf-model>
 </a-entity>
 
-<a-gltf-model id="mesh" src="./navmesh0.glb" scale="10 10 10" rotation="0 -90 0" position="7 0 8" visible="false" nav-mesh></a-gltf-model>  
+<a-gltf-model id="mesh" src="./glb/nav/navmesh0.glb" scale="10 10 10" rotation="0 -90 0" position="7 0 8" visible="false" nav-mesh></a-gltf-model>  
 
 <a-entity class="why">
-<a-entity static-body><a-gltf-model src="./wall29.glb" rotation="90 0 0" visible="false" scale="6 1 1.5" position="9 1.5 -3"></a-gltf-model></a-entity>
-<a-entity static-body><a-gltf-model src="./wall29.glb" rotation="90 180 0" visible="false" scale="4.5 1 1.5" position="7.5 1.5 1"></a-gltf-model></a-entity>
-<a-entity static-body><a-gltf-model src="./wall29.glb" rotation="90 -90 0" visible="false" scale="10 1 1.5" position="15 1.5 7"></a-gltf-model></a-entity>
-<a-entity static-body><a-gltf-model src="./wall29.glb" rotation="90 90 0" visible="false" scale="6.5 1 1.5" position="12 1.5 7.5"></a-gltf-model></a-entity>
-<a-entity static-body><a-gltf-model src="./wall29.glb" rotation="90 0 0" visible="false" scale="1.5 1 1.5" position="10.5 1.5 14"></a-gltf-model></a-entity>
-<a-entity static-body><a-gltf-model src="./wall29.glb" rotation="90 180 0" visible="false" scale="3 1 1.5" position="12 1.5 17"></a-gltf-model></a-entity>
-<a-entity static-body><a-gltf-model src="./wall29.glb" rotation="90 90 0" visible="false" scale="4 1 1" position="3 4 5"></a-gltf-model></a-entity>
-<a-entity static-body><a-gltf-model src="./wall29.glb" rotation="90 -90 0" visible="false" scale="5 1 1" position="5 4 6"></a-gltf-model></a-entity>
-<a-entity static-body><a-gltf-model src="./wall29.glb" rotation="90 90 0" visible="false" scale="7.5 1 1.5" position="-8 1.5 6.5"></a-gltf-model></a-entity>
-<a-entity static-body><a-gltf-model src="./wall29.glb" rotation="90 -90 0" visible="false" scale="9 1 1.5" position="-11 1.5 8"></a-gltf-model></a-entity>
+<a-entity static-body><a-gltf-model src="./glb/terrain/wall29.glb" rotation="90 0 0" visible="false" scale="6 1 1.5" position="9 1.5 -3"></a-gltf-model></a-entity>
+<a-entity static-body><a-gltf-model src="./glb/terrain/wall29.glb" rotation="90 180 0" visible="false" scale="4.5 1 1.5" position="7.5 1.5 1"></a-gltf-model></a-entity>
+<a-entity static-body><a-gltf-model src="./glb/terrain/wall29.glb" rotation="90 -90 0" visible="false" scale="10 1 1.5" position="15 1.5 7"></a-gltf-model></a-entity>
+<a-entity static-body><a-gltf-model src="./glb/terrain/wall29.glb" rotation="90 90 0" visible="false" scale="6.5 1 1.5" position="12 1.5 7.5"></a-gltf-model></a-entity>
+<a-entity static-body><a-gltf-model src="./glb/terrain/wall29.glb" rotation="90 0 0" visible="false" scale="1.5 1 1.5" position="10.5 1.5 14"></a-gltf-model></a-entity>
+<a-entity static-body><a-gltf-model src="./glb/terrain/wall29.glb" rotation="90 180 0" visible="false" scale="3 1 1.5" position="12 1.5 17"></a-gltf-model></a-entity>
+<a-entity static-body><a-gltf-model src="./glb/terrain/wall29.glb" rotation="90 90 0" visible="false" scale="4 1 1" position="3 4 5"></a-gltf-model></a-entity>
+<a-entity static-body><a-gltf-model src="./glb/terrain/wall29.glb" rotation="90 -90 0" visible="false" scale="5 1 1" position="5 4 6"></a-gltf-model></a-entity>
+<a-entity static-body><a-gltf-model src="./glb/terrain/wall29.glb" rotation="90 90 0" visible="false" scale="7.5 1 1.5" position="-8 1.5 6.5"></a-gltf-model></a-entity>
+<a-entity static-body><a-gltf-model src="./glb/terrain/wall29.glb" rotation="90 -90 0" visible="false" scale="9 1 1.5" position="-11 1.5 8"></a-gltf-model></a-entity>
 </a-entity>
 
-<a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5" position="0 0 0"></a-gltf-model>
-<a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5" position="1 0 19"></a-gltf-model>
-<a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5" position="1 0 13"></a-gltf-model>
-<a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5" position="7 0 19"></a-gltf-model>
-<a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5" position="7 0 13"></a-gltf-model>
+<a-entity class="enemys">
+<a-gltf-model id="enemy" src="./glb/enemy/slime5.glb" scale="1.5 1.5 1.5" position="0 0 0"></a-gltf-model>
+<a-gltf-model id="enemy" src="./glb/enemy/slime5.glb" scale="1.5 1.5 1.5" position="1 0 19"></a-gltf-model>
+<a-gltf-model id="enemy" src="./glb/enemy/slime5.glb" scale="1.5 1.5 1.5" position="1 0 13"></a-gltf-model>
+<a-gltf-model id="enemy" src="./glb/enemy/slime5.glb" scale="1.5 1.5 1.5" position="7 0 19"></a-gltf-model>
+<a-gltf-model id="enemy" src="./glb/enemy/slime5.glb" scale="1.5 1.5 1.5" position="7 0 13"></a-gltf-model>
 
-<a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5" position="1 3 31"></a-gltf-model>
-<a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5" position="1 3 25"></a-gltf-model>
-<a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5" position="7 3 31"></a-gltf-model>
-<a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5" position="7 3 25"></a-gltf-model>
-<a-gltf-model id="enemy" src="./slime5.glb" scale="1.5 1.5 1.5" position="5 3 -5"></a-gltf-model>
-<a-gltf-model id="jim" kinematic-body='{
-    shape: "box",
-    boxHalfExtents: [2.5, 2.5, 2.5]
-}' color="green" position="0 2 0" scale="0.5 0.5 0.5" src="./spike.glb"></a-gltf-model>
+<a-gltf-model id="enemy" src="./glb/enemy/slime5.glb" scale="1.5 1.5 1.5" position="1 3 31"></a-gltf-model>
+<a-gltf-model id="enemy" src="./glb/enemy/slime5.glb" scale="1.5 1.5 1.5" position="1 3 25"></a-gltf-model>
+<a-gltf-model id="enemy" src="./glb/enemy/slime5.glb" scale="1.5 1.5 1.5" position="7 3 31"></a-gltf-model>
+<a-gltf-model id="enemy" src="./glb/enemy/slime5.glb" scale="1.5 1.5 1.5" position="7 3 25"></a-gltf-model>
+<a-gltf-model id="enemy" src="./glb/enemy/slime5.glb" scale="1.5 1.5 1.5" position="5 3 -5"></a-gltf-model>
+</a-entity>
 
-<!--<a-entity dynamic-body='{
-    shape: "box",
-    boxHalfExtents: [0.5, 0.5, 0.5]
-  }' id="npc" gltf-model="door1.glb" nav-agent="speed: 11.5" scale="0.5 0.5 0.5" position="0 100 0"></a-entity>
-<a-gltf-model id="enemy" src="./slime4.glb" scale="1.5 1.5 1.5" position="0 0 2"></a-gltf-model>-->
-</a-scene>
+<a-gltf-model id="jim" kinematic-body color="green" position="0 2 0" scale="0.5 0.5 0.5" src="./glb/enemy/spike.glb"></a-gltf-model>
 
+<script src="./game.js"></script>
 
-
-    <script>
-        
-
-        document.querySelector('#jim').setAttribute('look-at-player', '');
-        document.querySelector('#jim').setAttribute('heatseeker', '');
-        document.querySelector('#gun').setAttribute('gunanim', '');
-        let enems = document.querySelectorAll('#enemy')
-        for(let i=0; i< enems.length; i++) {
-            enems[i].setAttribute('enemys', '')
-            console.log(i)
-        }
-
-        let health = 6
-        var cooldown =  false
-        const fil = ['./door1.glb','./floo88.glb','./wall2.glb','./wall.glb']
-        async function funny() {
-            if (cooldown == false) {
-                cooldown = true
-
-                var word = (player.getAttribute('position').x +' '+ player.getAttribute('position').y +' '+ player.getAttribute('position').z)
-        enemy.setAttribute('animation', {property: 'position', to: word, dur: '1000', startEvents: 'loaded'});
-        enemy.setAttribute('src', fil[Math.floor(Math.random()*4)])
-        console.log(Math.floor(Math.random()*10))
-        console.log(player.getAttribute('position'))
-        xd = player.getAttribute('position').x
-        await new Promise(r => setTimeout(r, 1000));
-        cooldown = false
-            }
-
-    }
-const doorid = [1,2,5,6,7,8]
-const doorspawn = [5.5,2,-2,15.5,2,15.5]
-
-
-
-    async function door(i, spawn,type) {
-        
-        i = i * 2
-        //document.getElementById("door" + String(i-1))
-        //document.getElementById("door" + String(i))
-if (type == 'x') {
-    if (document.getElementById("door" + String(i-1)).getAttribute('position').x == spawn) {
-        let pos1 = ((document.getElementById("door" + String(i-1)).getAttribute('position').x + 1.5) + ' ' + document.getElementById("door" + String(i-1)).getAttribute('position').y + ' ' + document.getElementById("door" + String(i-1)).getAttribute('position').z)
-        let pos2 = ((document.getElementById("door" + String(i)).getAttribute('position').x - 1.5) + ' ' + document.getElementById("door" + String(i)).getAttribute('position').y + ' ' + document.getElementById("door" + String(i)).getAttribute('position').z)
-        document.getElementById("door" + String(i-1)).setAttribute('animation', {property: 'position', to: pos1, dur: '1000', startEvents: 'lod'});
-        document.getElementById("door" + String(i)).setAttribute('animation', {property: 'position', to: pos2, dur: '1000', startEvents: 'lod'});
-        await mesh.setAttribute('src','./navmesh'+i+'.glb')
-    } else {
-        let pos1 = (spawn + ' ' + document.getElementById("door" + String(i-1)).getAttribute('position').y + ' ' + document.getElementById("door" + String(i-1)).getAttribute('position').z)
-        let pos2 = (spawn + ' ' + document.getElementById("door" + String(i)).getAttribute('position').y + ' ' + document.getElementById("door" + String(i)).getAttribute('position').z)
-        document.getElementById("door" + String(i-1)).setAttribute('animation', {property: 'position', to: pos1, dur: '1000', startEvents: 'lod'});
-        document.getElementById("door" + String(i)).setAttribute('animation', {property: 'position', to: pos2, dur: '1000', startEvents: 'lod'});
-        await mesh.setAttribute('src','./navmesh0.glb')
-    }
-    } else {
-        
-    if (document.getElementById("door" + String(i-1)).getAttribute('position').z == spawn) {
-        let pos1 = ((document.getElementById("door" + String(i-1)).getAttribute('position').x) + ' ' + document.getElementById("door" + String(i-1)).getAttribute('position').y + ' ' + (document.getElementById("door" + String(i-1)).getAttribute('position').z + 1.5))
-        let pos2 = ((document.getElementById("door" + String(i)).getAttribute('position').x) + ' ' + document.getElementById("door" + String(i)).getAttribute('position').y + ' ' + (document.getElementById("door" + String(i)).getAttribute('position').z - 1.5))
-        document.getElementById("door" + String(i-1)).setAttribute('animation', {property: 'position', to: pos1, dur: '1000', startEvents: 'lod'});
-        document.getElementById("door" + String(i)).setAttribute('animation', {property: 'position', to: pos2, dur: '1000', startEvents: 'lod'});
-        await mesh.setAttribute('src','./navmesh'+i+'.glb')
-
-    } else {
-        let pos1 = (document.getElementById("door" + String(i-1)).getAttribute('position').x + ' ' + document.getElementById("door" + String(i-1)).getAttribute('position').y + ' ' + spawn)
-        let pos2 = (document.getElementById("door" + String(i)).getAttribute('position').x + ' ' + document.getElementById("door" + String(i)).getAttribute('position').y + ' ' + spawn)
-        document.getElementById("door" + String(i-1)).setAttribute('animation', {property: 'position', to: pos1, dur: '1000', startEvents: 'lod'});
-        document.getElementById("door" + String(i)).setAttribute('animation', {property: 'position', to: pos2, dur: '1000', startEvents: 'lod'});
-        await mesh.setAttribute('src','./navmesh0.glb')
-    }
-    }
-        document.getElementById("door" + String(i-1)).emit('lod')
-        document.getElementById("door" + String(i)).emit('lod')
-        for (let y = 1; y<(doorid.length/2 + 1); y++) {
-    if (doorid[y*2-1] != i) {
-        var pos = (doorspawn[y*2-1-1] + ' ' + document.getElementById("door" + String(doorid[y*2-1-1])).getAttribute('position').y + ' ' + doorspawn[y*2-1])
-        document.getElementById("door" + String(doorid[y*2-1-1])).setAttribute('animation', {property: 'position', to: pos, dur: '1000', startEvents: 'lod'})
-        document.getElementById("door" + String(doorid[y*2-1])).setAttribute('animation', {property: 'position', to: pos, dur: '1000', startEvents: 'lod'})
-        document.getElementById("door" + String(doorid[y*2-1-1])).emit('lod')
-        document.getElementById("door" + String(doorid[y*2-1])).emit('lod')
-        console.log("door" + String(doorid[y*2-1]) + pos)
-        console.log("door" + String(doorid[y*2-1-1]))
-    }
-}
-   
-}
-async function finish(i,spawn,type) {
-    if (i==5) {
-    door(i,spawn,type)
-    await new Promise(r => setTimeout(r, 300));
-    end.setAttribute('visible',true)
-    await new Promise(r => setTimeout(r, 3000));
-    window.location.replace('./index.html')
-    
-    
-    } else {
-    popup.setAttribute('visible',true)
-    await new Promise(r => setTimeout(r, 3000));
-    popup.setAttribute('visible',false)
-    }
-
-}
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') {
-    var word = (player.getAttribute('position').x +' '+ player.getAttribute('position').y +' '+ player.getAttribute('position').z)
-        
-    jim.setAttribute('animation',{property: 'position', to: word, dur: '1000', startEvents: 'lod'})
-        jim.emit('lod')
-        console.log(player.getAttribute('position'))
-        
-        
-        document.querySelector('#jim').removeAttribute('look-at-player');
-        document.querySelector('#jim').setAttribute('look-at-player', '');
-} 
-  if (event.key === '1') {
-    const scene = document.querySelector('a-scene');
-
-      for (let i = 0; i < 5; i++) {
-        const box = document.createElement('a-box');
-        box.setAttribute('position', `${i} 12 -5`);
-        box.setAttribute('color', '#EF2D5E');
-        box.setAttribute('depth', '1');
-        box.setAttribute('height', '1');
-        box.setAttribute('width', '1');
-        box.setAttribute('id','jim')
-        box.setAttribute('static-body', '');
-        //scene.appendChild(box);
-      }
-
-} 
-if(event.key === '2') {
-    
-}
-})
-AFRAME.registerComponent('heatseeker', {
-    schema:{},
-    init: async function () {
-      const player = document.querySelector('#player');
-      const homer = (player.getAttribute('position').x + " " + player.getAttribute('position').y + " " + player.getAttribute('position').z)
-      this.el.setAttribute('animation',{property: 'position', to: homer, dur: '1000', startEvents: 'lod'})
-      this.el.emit('lod')
-      this.el.setAttribute('look-at-player', '');
-      this.el.addEventListener("collide", (e) => {
-        //console.log("Box1 collided with", e.detail.body.el);
-        this.el.remove()
-        if (e.detail.body.el.getAttribute('id') == 'player') {
-            health--
-            document.querySelector('#healthbar').setAttribute('src','./healthbar' + health + '.png')
-            if (health <= 0) {
-    health--
-death()
-        }
-        }
-      });
-    },
-    tick:function () {},
-    remove: async function () {
-        await new Promise(r => setTimeout(r, 3000));
-        let closer = []
-      const player = document.querySelector('#player');
-      const target = document.querySelectorAll('#enemy');
-      console.log(target)
-      for (let i = 0; i < target.length; i++) {
-      if (!player || !target) return;
-
-      const playerPos = player.object3D.position;
-      const targetPos = target[i].object3D.position;
-console.log(targetPos)
-      const distance = playerPos.distanceTo(targetPos);
-      closer[i] = distance
-      }
-      const distance = Math.min(...closer)
-      let enemy
-      console.log('Distance:', distance.toFixed(2));
-      for (let i = 0; i< closer.length; i++) {
-        if (closer[i] == distance) {
-            enemy = i
-            console.log(closer)
-        }
-      }
-      let enemypos = (target[enemy].getAttribute('position').x + " " + (target[enemy].getAttribute('position').y + 0.5) + " " + target[enemy].getAttribute('position').z) 
-      
-    const scene = document.querySelector('a-scene');
-        const box = document.createElement('a-gltf-model');
-        box.setAttribute('position', enemypos);
-        box.setAttribute('src', './spike.glb');
-        box.setAttribute('scale', '0.5 0.5 0.5');
-        box.setAttribute('id','jim')
-        box.setAttribute('kinematic-body', '');
-        scene.appendChild(box);
-        box.setAttribute('heatseeker', '');
-    
-
-    }
-})
-AFRAME.registerComponent('enemys', {
-    init: function() {
-        this.el.addEventListener('click', (e) => {
-            this.el.remove()
-            document.querySelector('#gun').removeAttribute('gunanim')
-        document.querySelector('#gun').setAttribute('gunanim', '');
-        })
-    }
-})
-AFRAME.registerComponent('distance-checker', {
-    tick: function () {
-          if (document.getElementById('jim')) {
-
-            } else {
-
-            
-            let closer = []
-      const player = document.querySelector('#player');
-      const target = document.querySelectorAll('#enemy');
-      for (let i = 0; i < target.length; i++) {
-      if (!player || !target) return;
-
-      const playerPos = player.object3D.position;
-      const targetPos = target[i].object3D.position;
-
-      const distance = playerPos.distanceTo(targetPos);
-      closer[i] = distance
-      }
-      const distance = Math.min(...closer)
-      let enemy
-      console.log('Distance:', distance.toFixed(2));
-      for (let i = 0; i< closer.length; i++) {
-        if (closer[i] == distance) {
-            enemy = i
-        }
-      }
-      let enemypos = (target[enemy].getAttribute('position').x + " " + (target[enemy].getAttribute('position').y + 1) + " " + target[enemy].getAttribute('position').z) 
-      
-    const scene = document.querySelector('a-scene');
-        const box = document.createElement('a-gltf-model');
-        box.setAttribute('position', enemypos);
-        box.setAttribute('src', './spike.glb');
-        box.setAttribute('scale', '0.5 0.5 0.5');
-        box.setAttribute('id','jim')
-        box.setAttribute('kinematic-body', '');
-        //scene.appendChild(box);
-        //box.setAttribute('heatseeker', '');
-    }
-    
-}
-  });
-AFRAME.registerComponent('look-at-player', {
-    update: function () {
-      const player = document.querySelector('#player');
-      if (!player) return;
-
-      const playerPos = player.object3D.position;
-      this.el.object3D.lookAt(playerPos);
-    }
-  });
-AFRAME.registerComponent('gunanim', {
-    update: async function() {
-        await this.el.setAttribute('src','./gunb.glb')
-        await new Promise(r => setTimeout(r, 500));
-        await this.el.setAttribute('src','./gunc.glb')
-        await new Promise(r => setTimeout(r, 500));
-        await this.el.setAttribute('src','./gund.glb')
-        await new Promise(r => setTimeout(r, 500));
-        this.el.setAttribute('src','./guna.glb')
-    }
-})
-  //document.querySelector('#gun').setAttribute('distance-checker', '');
-mesh.setAttribute('src','./navmesh0.glb')
-        async function death() {
-            
-    end.setAttribute('src','./losescreen.png')
-    end.setAttribute('visible',true)
-    await new Promise(r => setTimeout(r, 3000));
-    window.location.replace('./index.html')
-        }
-    </script>
+</a-scene>    
 </body>
 </html>
