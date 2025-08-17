@@ -1,15 +1,15 @@
 @font-face {
     font-family: doom1;
-    src: url(../fonts/Doom2016Left-RpJDA.ttf);
+    src: url(./fonts/Doom2016Left-RpJDA.ttf);
 }
 @font-face {
     font-family: doom2;
-    src: url(../fonts/Doom2016Right-VGz0z.ttf);
+    src: url(./fonts/Doom2016Right-VGz0z.ttf);
 
 }
 @font-face {
     font-family: doom3;
-    src: url(../fonts/Doom2016Text-GOlBq.ttf);
+    src: url(./fonts/Doom2016Text-GOlBq.ttf);
 
 }
 .jim {
